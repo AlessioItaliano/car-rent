@@ -1,17 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: space-evenly;
-  //   background-color: transparent;
-  //   position: absolute;
-  //   left: 0;
-  //   right: 0;
-  //   z-index: 999;
-  //   color: white;
-  //   background-color: #fff;
-
   background: linear-gradient(to top, #191970, lightblue, #000212);
 
   padding: 60px;
