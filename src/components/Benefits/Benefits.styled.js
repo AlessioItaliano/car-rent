@@ -4,7 +4,6 @@ export const Container = styled.div`
   background: linear-gradient(to top, #191970, lightblue, #000212);
 
   padding: 60px;
-  //   margin: 0 auto 0 auto;
 
   //   width: 1200px;
   margin-left: auto;
