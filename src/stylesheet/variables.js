@@ -1,4 +1,4 @@
-export const globalTheme = {
+export const variables = {
   colors: {
     primary: '#121417',
     secondary: 'rgba(18, 20, 23, 0.50)',

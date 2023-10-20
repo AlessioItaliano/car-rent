@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const Button = styled.button`
   display: flex;
   width: 274px;
-  padding: 12px 99px;
+  // padding: 12px 99px;
+  padding: 12px 0 12px 0;
   justify-content: center;
   align-items: center;
   cursor: pointer;

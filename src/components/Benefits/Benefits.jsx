@@ -1,13 +1,11 @@
 import * as s from './Benefits.styled';
-import { ReactComponent as Medal } from '../../icons/medal.svg';
-import { ReactComponent as Car } from '../../icons/car.svg';
-import { ReactComponent as Money } from '../../icons/money.svg';
-import { ReactComponent as Private } from '../../icons/private.svg';
-import { ReactComponent as Service } from '../../icons/service.svg';
-import { ReactComponent as Time } from '../../icons/time.svg';
-import { ReactComponent as Tracking } from '../../icons/tracking.svg';
-import { ReactComponent as Transaction } from '../../icons/transaction.svg';
-import { ReactComponent as Shield } from '../../icons/shield.svg';
+
+import { ReactComponent as Medal } from '../../icons/MainPage/medal.svg';
+import { ReactComponent as Car } from '../../icons/MainPage/car.svg';
+import { ReactComponent as Service } from '../../icons/MainPage/service.svg';
+import { ReactComponent as Time } from '../../icons/MainPage/time.svg';
+import { ReactComponent as Transaction } from '../../icons/MainPage/transaction.svg';
+import { ReactComponent as Shield } from '../../icons/MainPage/shield.svg';
 
 const Benefits = () => {
   return (

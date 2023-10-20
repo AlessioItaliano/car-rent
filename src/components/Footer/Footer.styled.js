@@ -39,8 +39,16 @@ export const Address = styled.address`
 `;
 
 export const AddressItem = styled.a`
+  display: flex;
+  gap: 10px;
+  fill: #fff;
   color: #fff;
   font-size: 24px;
   line-height: 1.71;
   text-decoration: none;
+`;
+
+export const Icon = styled.div`
+  width: 25px;
+  height: 25px;
 `;
