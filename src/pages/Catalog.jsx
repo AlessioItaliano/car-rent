@@ -8,10 +8,12 @@ import LoadMoreBtn from 'components/LoadMoreBtn';
 import Loader from 'components/Loader';
 
 const Catalog = () => {
-  const [currentCars, setCars] = useState([]);
+  const [currentCars, setCurrentCars] = useState([]);
   const [page, setPage] = useState(1);
   const [totalCars, setTotalCars] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+
+  console.log(currentCars);
 
   useEffect(() => {
     async function getAllCars() {
@@ -24,7 +26,7 @@ const Catalog = () => {
   useEffect(() => {
     async function fetchData() {
       const data = await fetchCars(page);
-      setCars([...currentCars, ...data]);
+      setCurrentCars(prevState => [...prevState, ...data]);
       setIsLoading(false);
     }
     fetchData();
@@ -33,6 +35,7 @@ const Catalog = () => {
   const onNextPage = () => {
     setPage(page + 1);
   };
+
   return (
     <>
       {isLoading ? (

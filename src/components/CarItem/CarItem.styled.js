@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 274px;
   height: 426px;
 `;
@@ -25,6 +27,7 @@ export const Description = styled.div`
   // display: flex;
   // justify-content: space-between;
   color: #121417;
+  flex-grow: 1;
 
   font-family: Manrope;
   font-size: 16px;
@@ -32,7 +35,7 @@ export const Description = styled.div`
   font-weight: 500;
   line-height: 24px;
 
-  margin-bottom: 28px;
+  // margin-bottom: 28px;
 `;
 
 export const MainDesctiption = styled.div`
