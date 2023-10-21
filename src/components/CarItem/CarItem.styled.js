@@ -42,7 +42,8 @@ export const MainDesctiption = styled.div`
 
 export const AdditionalDesctiption = styled.span`
   display: flex;
-
+  height: 36px;
+  overflow: hidden;
   color: rgba(18, 20, 23, 0.5);
 
   font-family: Manrope;

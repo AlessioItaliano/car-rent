@@ -27,12 +27,12 @@ const ListItem = ({ car }) => {
             {make}
             <s.Model> {model}</s.Model>, {year}
           </span>
-          <p>{rentalPrice}</p>
+          <span>{rentalPrice}</span>
         </s.MainDesctiption>
 
         <s.AdditionalDesctiption>
-          {city} | {country} | {rentalCompany} | {type} | {model} | {id} |
-          {mainAccessor}
+          {city} | {country} | {rentalCompany} <br />
+          {type} | {model} | {id} | {mainAccessor}
         </s.AdditionalDesctiption>
       </s.Description>
       <CarItemBtn car={car} />

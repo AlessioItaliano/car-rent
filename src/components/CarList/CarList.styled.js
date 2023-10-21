@@ -7,7 +7,7 @@ export const List = styled.ul`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 29px;
 `;
 
 export const Item = styled.li`

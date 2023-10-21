@@ -1,12 +1,17 @@
-import * as s from './Sidebar.styled';
+import { NavLink } from 'react-router-dom';
+import * as s from './SideBar.styled';
 
-const Sidebar = ({ title, children }) => (
-  <s.Section>
-    <s.Container>
-      {title && <s.Title>{title}</s.Title>}
-      {children}
-    </s.Container>
-  </s.Section>
-);
+const SideBar = () => {
+  return (
+    <s.Aside>
+      <s.Title>Car Rental</s.Title>
+      <s.Nav>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/catalog">Catalog</NavLink>
+        <NavLink to="/favorites">Favorites</NavLink>
+      </s.Nav>
+    </s.Aside>
+  );
+};
 
-export default Sidebar;
+export default SideBar;

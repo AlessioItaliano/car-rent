@@ -1,29 +1,17 @@
-import { useState, useEffect } from 'react';
-
-import { fetchCars } from 'services/fetchcars';
-import * as s from './CarList.styled';
-
 import CarItem from 'components/CarItem';
 
-const CarList = () => {
-  const [carData, setCarData] = useState([]);
+import * as s from './CarList.styled';
 
-  useEffect(() => {
-    async function fetchData() {
-      const data = await fetchCars();
-      setCarData(data);
-    }
-    fetchData();
-  }, []);
-
+const CarList = ({ currentCars }) => {
   return (
-    <s.List>
-      {carData.map(car => (
-        <s.Item key={car.id}>
-          <CarItem car={car} />
-        </s.Item>
-      ))}
-    </s.List>
+      <s.List>
+        {currentCars.map(car => (
+          <s.Item key={car.id}>
+            <CarItem car={car} />
+          </s.Item>
+        ))}
+      </s.List>
+
   );
 };
 
