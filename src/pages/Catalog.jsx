@@ -7,11 +7,6 @@ import Section from 'components/Section';
 import LoadMoreBtn from 'components/LoadMoreBtn';
 import Loader from 'components/Loader';
 
-// import Header from 'components/Header';
-// import Hero from 'components/Hero';
-// import Benefits from 'components/Benefits';
-// import Footer from 'components/Footer';
-
 const Catalog = () => {
   const [currentCars, setCars] = useState([]);
   const [page, setPage] = useState(1);
@@ -21,7 +16,7 @@ const Catalog = () => {
   useEffect(() => {
     async function getAllCars() {
       const data = await fetchAll();
-      setTotalCars(data);
+      setTotalCars(data.length);
     }
     getAllCars();
   }, []);
@@ -45,7 +40,7 @@ const Catalog = () => {
       ) : (
         <Section>
           <CarList currentCars={currentCars} />
-          {currentCars.length < totalCars.length && currentCars.length > 0 && (
+          {currentCars.length < totalCars && currentCars.length > 0 && (
             <LoadMoreBtn onNextPage={onNextPage} />
           )}
         </Section>
