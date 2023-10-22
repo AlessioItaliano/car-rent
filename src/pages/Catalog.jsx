@@ -56,7 +56,7 @@ const Catalog = () => {
         <Loader />
       ) : (
         <Section>
-          <CarList currentCars={currentCars} />
+          <CarList cars={currentCars} />
           {currentCars.length < totalCars && currentCars.length > 0 && (
             <LoadMoreBtn onNextPage={onNextPage} />
           )}
