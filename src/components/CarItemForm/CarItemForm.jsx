@@ -9,14 +9,24 @@ const CarItemForm = ({ car }) => {
     type,
     make,
     model,
-    engineSize,
+    mileage,
     address,
-    // accessories,
+    engineSize,
+    rentalPrice,
+    accessories,
     description,
     fuelConsumption,
+    functionalities,
+    rentalConditions,
   } = car;
 
-  const [, city, country] = address.match(/,\s([^,]+),\s([^,]+)$/);
+  const companyAddress = address.split(',');
+  const country = companyAddress[2];
+  const city = companyAddress[1];
+  const conditions = rentalConditions.split('\n');
+  const minAge = conditions[0].split(' ');
+  const age = minAge[2];
+  const textMinAge = minAge.splice(0, 2).join(' ');
 
   return (
     <>
@@ -31,16 +41,34 @@ const CarItemForm = ({ car }) => {
       </s.AdditionalDescription>
       <s.Description>{description}</s.Description>
 
-      <div>
+      <s.DescriptionBox>
         <s.Title>Accessories and functionalities:</s.Title>
         <s.AdditionalDescription>
-          {city} | {country} | Id:{id} | Year:{year} | Type:{type} <br />
-          Fuel Consumption:{fuelConsumption} | Engine Size: {engineSize}
+          {accessories[0]} | {accessories[1]} | {accessories[2]}
         </s.AdditionalDescription>
-      </div>
-      <div>
-        <s.Title>Rental Conditions:</s.Title>
-      </div>
+        <s.AdditionalDescription>
+          {functionalities[0]} | {functionalities[1]} | {functionalities[2]}
+        </s.AdditionalDescription>
+      </s.DescriptionBox>
+
+      <s.DescriptionBox>
+        <s.Title>Rental Conditions: </s.Title>
+        <s.Rental>
+          <s.RentalItem>
+            {textMinAge} <s.Box>{age}</s.Box>
+          </s.RentalItem>
+          <s.RentalItem>{conditions[1]}</s.RentalItem>
+          <s.RentalItem>{conditions[2]}</s.RentalItem>
+          <s.RentalItem>
+            Mileage:
+            <s.Box>{(mileage / 1000).toFixed(3).replace('.', ',')}</s.Box>
+          </s.RentalItem>
+          <s.RentalItem>
+            Price: <s.Box>{rentalPrice.slice(1)}$</s.Box>
+          </s.RentalItem>
+        </s.Rental>
+      </s.DescriptionBox>
+
       <s.RentBtn href="tel:+380730000000">
         <Button>Rent car</Button>
       </s.RentBtn>
