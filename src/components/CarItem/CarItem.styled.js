@@ -1,42 +1,38 @@
 import styled from 'styled-components';
 
+import { variables } from '../../stylesheet/variables';
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
+
   width: 274px;
   height: 426px;
-  position: relative;
 `;
 
 export const Foto = styled.img`
   width: 274px;
   height: 280px;
-  // flex-shrink: 0;
   object-fit: cover;
-  // object-position: 50% 50%;
 
   border-radius: 12px;
 
   background: linear-gradient(
     180deg,
-    rgba(18, 20, 23, 0.5) 2.5%,
-    rgba(18, 20, 23, 0) 41.07%
+    ${variables.colors.scroll} 2.5%,
+    ${variables.colors.lineDivider} 41.07%
   );
 `;
 
 export const Description = styled.div`
-  // display: flex;
-  // justify-content: space-between;
-  color: #121417;
+  margin-top: 14px;
   flex-grow: 1;
 
-  font-family: Manrope;
   font-size: 16px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 24px;
 
-  margin-top: 14px;
+  color: ${variables.colors.primary};
 `;
 
 export const MainDesctiption = styled.div`
@@ -49,45 +45,42 @@ export const MainDesctiption = styled.div`
 export const AdditionalDesctiption = styled.span`
   display: flex;
   height: 36px;
-  overflow: hidden;
-  color: rgba(18, 20, 23, 0.5);
 
-  font-family: Manrope;
+  overflow: hidden;
+
   font-size: 12px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 18px;
+
+  color: ${variables.colors.secondary};
 `;
 
 export const Model = styled.span`
-  color: #3470ff;
+  color: ${variables.colors.accent};
 `;
-
-// export const MainButton = styled.p`
-//   display: flex;
-//   justify-content: center;
-// `;
 
 export const IconBox = styled.div`
   height: 16px;
-  color: rgba(18, 20, 23, 0.1);
+
+  color: ${variables.colors.black};
 `;
 
 export const FavoriteContainer = styled.div`
   position: absolute;
   top: 10px;
   right: 10px;
+
   cursor: pointer;
 `;
 
 export const StyledActiveIcon = styled.div`
   width: 18px;
   height: 18px;
-  color: rgba(52, 112, 255, 1);
+
+  color: ${variables.colors.accentBtn};
 `;
 
 export const StyledNormalIcon = styled.div`
   width: 18px;
   height: 18px;
-  color: rgba(255, 255, 255, 0.8);
+  color: ${variables.colors.iconNorm};
 `;

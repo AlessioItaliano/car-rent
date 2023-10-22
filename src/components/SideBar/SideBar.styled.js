@@ -1,6 +1,9 @@
-import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+
 import { ReactComponent as CloseIconBtn } from '../../icons/Catalog/x-close.svg';
+
+import { variables } from '../../stylesheet/variables';
+import styled from 'styled-components';
 
 export const Backdrop = styled.div`
   position: fixed;
@@ -9,7 +12,7 @@ export const Backdrop = styled.div`
   width: 100vw;
   height: 100vh;
 
-  background-color: rgba(18, 20, 23, 0.5);
+  background-color: ${variables.colors.scroll};
 `;
 
 export const Field = styled.aside`
@@ -24,18 +27,21 @@ export const Field = styled.aside`
   border-top-right-radius: 24px;
   border-bottom-right-radius: 24px;
 
-  background: linear-gradient(to top, #000212, #191970);
+  background: linear-gradient(
+    to top,
+    ${variables.colors.bgMainSecondaryGrad},
+    ${variables.colors.bgMainPrimaryGrad}
+  );
 `;
 
 export const CloseButton = styled.button`
-  position: absolute;
-  top: 16px;
-  right: 16px;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
+  position: absolute;
+  top: 16px;
+  right: 16px;
   padding: 0;
 
   cursor: pointer;
@@ -48,31 +54,30 @@ export const IconBtn = styled(CloseIconBtn)`
   width: 100%;
   height: 100%;
 
-  color: #fff;
+  color: ${variables.colors.tertiary};
 `;
 
 export const Title = styled.h2`
+  margin-bottom: 150px;
+
   text-transform: uppercase;
-  color: white;
+
   font-size: 40px;
   font-weight: bold;
 
-  margin-bottom: 150px;
+  color: ${variables.colors.tertiary};
 `;
 
 export const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   gap: 50px;
-  //   padding-top: 30px;
 `;
 
 export const StyledLink = styled(NavLink)`
-  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
 
   padding: 12px 99px;
   border-radius: 12px;
@@ -80,17 +85,19 @@ export const StyledLink = styled(NavLink)`
   font-size: 16px;
   font-weight: 600;
   line-height: 1.25;
-  background: #3470ff;
-  color: #fff;
+
+  background: ${variables.colors.accent};
+  color: ${variables.colors.tertiary};
+
+  text-decoration: none;
 
   &:focus,
   &:hover {
-    color: green;
-    background-color: white;
+    background-color: ${variables.colors.accentHover};
   }
 
   &.active {
-    color: green;
-    background-color: white;
+    color: ${variables.colors.primary};
+    background-color: ${variables.colors.tertiary};
   }
 `;

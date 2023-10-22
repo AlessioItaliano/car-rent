@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
+import { variables } from '../../stylesheet/variables';
+
 export const LoaderStyle = styled.div`
-  background-color: skyblue;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* margin-top: 20px; */
+
+  background-color: ${variables.colors.tertiary};
 `;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { variables } from '../../stylesheet/variables';
 
 export const Foto = styled.img`
   width: 461px;
@@ -6,64 +7,52 @@ export const Foto = styled.img`
   object-fit: cover;
 
   border-radius: 14px;
-  // object-position: 50% 50%;
+
   background: linear-gradient(
     180deg,
-    rgba(18, 20, 23, 0.5) 2.5%,
-    rgba(18, 20, 23, 0) 41.07%
+    ${variables.colors.secondary} 2.5%,
+    ${variables.colors.lineDivider} 41.07%
   );
 `;
 
 export const MainDescription = styled.div`
-  color: #121417;
-
-  font-family: Manrope;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 24px;
-
   margin-bottom: 8px;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  color: ${variables.colors.primary};
 `;
 
 export const Model = styled.span`
-  color: #3470ff;
+  color: ${variables.colors.accent};
 `;
 
 export const AdditionalDescription = styled.span`
   display: flex;
-
-  color: rgba(18, 20, 23, 0.5);
-
-  font-family: Manrope;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
-
+  flex-direction: column;
   margin-bottom: 14px;
+
+  font-size: 12px;
+
+  color: ${variables.colors.secondary};
 `;
 
 export const Description = styled.p`
-  color: #121417;
-
-  font-family: Manrope;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-
   margin-bottom: 24px;
+
+  font-size: 14px;
+  line-height: 1.42;
+
+  color: ${variables.colors.primary};
 `;
 
 export const Title = styled.h2`
-  color: #121417;
-
-  font-family: Manrope;
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
   line-height: 20px;
+
+  color: ${variables.colors.primary};
 `;
 
 export const RentBtn = styled.a`
@@ -80,11 +69,11 @@ export const AccessoriesDescription = styled.ul`
 export const AccessoriesItem = styled.li`
   padding: 0 6px;
   font-size: 12px;
-  line-height: 1.5;
-  color: black;
+
+  color: ${variables.colors.lineDivider};
 
   &:not(:last-child) {
-    border-right: 1px solid black;
+    border-right: 1px solid ${variables.colors.lineDivider};
   }
 `;
 
@@ -99,22 +88,22 @@ export const Rental = styled.ul`
 `;
 
 export const RentalItem = styled.li`
-  background-color: skyblue;
-  color: black;
   padding: 7px 14px;
-  border-radius: 35px;
+
   font-size: 12px;
-  line-height: 1.5;
+
+  border-radius: 35px;
+
+  color: ${variables.colors.additionalModal};
+  background-color: ${variables.colors.bgAdditionalModal};
 `;
 
 export const Box = styled.span`
   font-weight: 600;
+
+  color: ${variables.colors.accent};
 `;
 
-export const Vector = styled.div`
-  color: rgba(18, 20, 23, 0.1);
-`;
-
-export const Vec = styled.div`
-  color: rgba(18, 20, 23, 0.1);
+export const BoxInside = styled.div`
+  margin-bottom: 4px;
 `;

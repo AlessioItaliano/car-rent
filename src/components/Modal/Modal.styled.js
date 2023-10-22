@@ -1,19 +1,21 @@
 import styled from 'styled-components';
+
 import { ReactComponent as CloseIconBtn } from '../../icons/Catalog/x-close.svg';
-// import { globalTheme } from 'theme';
+
+import { variables } from '../../stylesheet/variables';
 
 export const Backdrop = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-color: rgba(18, 20, 23, 0.5);
+  background-color: ${variables.colors.scroll};
 `;
 
 export const ModalField = styled.div`
@@ -21,11 +23,11 @@ export const ModalField = styled.div`
   width: 541px;
   height: 752px;
   padding: 40px;
-  box-sizing: border-box;
 
+  box-sizing: border-box;
   border-radius: 24px;
 
-  background-color: #fff;
+  background-color: ${variables.colors.tertiary};
 `;
 
 export const CloseButton = styled.button`
@@ -49,5 +51,6 @@ export const IconBtn = styled(CloseIconBtn)`
   width: 100%;
   height: 100%;
 
-  color: black;
+  color:   background-color: ${variables.colors.black};
+
 `;

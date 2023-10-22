@@ -1,4 +1,4 @@
-import Button from 'components/Button';
+import RentButton from 'components/RentButton';
 import * as s from './CarItemForm.styled';
 
 const CarItemForm = ({ car }) => {
@@ -36,18 +36,24 @@ const CarItemForm = ({ car }) => {
         <s.Model> {model}</s.Model>, {year}
       </s.MainDescription>
       <s.AdditionalDescription>
-        {city} | {country} | Id:{id} | Year:{year} | Type:{type} <br />
-        Fuel Consumption:{fuelConsumption} | Engine Size: {engineSize}
+        <s.BoxInside>
+          {city} | {country} | Id:{id} | Year:{year} | Type:{type}
+        </s.BoxInside>
+        <div>
+          Fuel Consumption:{fuelConsumption} | Engine Size: {engineSize}
+        </div>
       </s.AdditionalDescription>
       <s.Description>{description}</s.Description>
 
       <s.DescriptionBox>
         <s.Title>Accessories and functionalities:</s.Title>
         <s.AdditionalDescription>
-          {accessories[0]} | {accessories[1]} | {accessories[2]}
-        </s.AdditionalDescription>
-        <s.AdditionalDescription>
-          {functionalities[0]} | {functionalities[1]} | {functionalities[2]}
+          <s.BoxInside>
+            {accessories[0]} | {accessories[1]} | {accessories[2]}
+          </s.BoxInside>
+          <div>
+            {functionalities[0]} | {functionalities[1]} | {functionalities[2]}
+          </div>
         </s.AdditionalDescription>
       </s.DescriptionBox>
 
@@ -70,7 +76,7 @@ const CarItemForm = ({ car }) => {
       </s.DescriptionBox>
 
       <s.RentBtn href="tel:+380730000000">
-        <Button>Rent car</Button>
+        <RentButton>Rent car</RentButton>
       </s.RentBtn>
     </>
   );

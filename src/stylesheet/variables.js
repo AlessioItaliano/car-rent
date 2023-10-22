@@ -3,13 +3,20 @@ export const variables = {
     primary: '#121417',
     secondary: 'rgba(18, 20, 23, 0.50)',
     tertiary: '#ffffff',
+
     accent: '#3470FF',
     accentHover: '#0B44CD',
+    accentBtn: 'rgba(52, 112, 255, 1)',
+    accentBtnHover: 'rgba(11, 68, 205, 1)',
+
+    iconNorm: 'rgba(255, 255, 255, 0.8)',
+
     placeholder: '#8A8A89',
     additionalModal: '#363535',
     lineDivider: 'rgba(18, 20, 23, 0.10)',
     scroll: 'rgba(18, 20, 23, 0.05)',
     dropdown: 'rgba(18, 20, 23, 0.20)',
+    black: 'rgba(18, 20, 23, 1)',
 
     bgMainPrimaryGrad: '#191970',
     bgMainSecondaryGrad: '#000212',
