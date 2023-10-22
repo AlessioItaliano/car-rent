@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import Button from 'components/Button';
-
 import * as s from './SideBar.styled';
 
 const SideBarRoot = document.getElementById('sideBar-root');
@@ -36,13 +34,13 @@ const SideBar = ({ onClose }) => {
         <s.Title>Rental</s.Title>
         <s.Nav>
           <s.StyledLink to="/" onClick={onClose}>
-            <Button> Home </Button>
+            Home
           </s.StyledLink>
           <s.StyledLink to="/catalog" onClick={onClose}>
-            <Button> Catalog </Button>
+            Catalog
           </s.StyledLink>
           <s.StyledLink to="/favorites" onClick={onClose}>
-            <Button> Favorites </Button>
+            Favorites
           </s.StyledLink>
         </s.Nav>
       </s.Field>

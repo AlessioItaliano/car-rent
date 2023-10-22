@@ -48,7 +48,7 @@ export const IconBtn = styled(CloseIconBtn)`
   width: 100%;
   height: 100%;
 
-  color: black;
+  color: #fff;
 `;
 
 export const Title = styled.h2`
@@ -69,4 +69,28 @@ export const Nav = styled.nav`
 
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+
+  padding: 12px 99px;
+  border-radius: 12px;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  background: #3470ff;
+  color: #fff;
+
+  &:focus,
+  &:hover {
+    color: green;
+    background-color: white;
+  }
+
+  &.active {
+    color: green;
+    background-color: white;
+  }
 `;

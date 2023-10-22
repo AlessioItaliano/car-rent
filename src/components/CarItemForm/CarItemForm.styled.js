@@ -110,3 +110,11 @@ export const RentalItem = styled.li`
 export const Box = styled.span`
   font-weight: 600;
 `;
+
+export const Vector = styled.div`
+  color: rgba(18, 20, 23, 0.1);
+`;
+
+export const Vec = styled.div`
+  color: rgba(18, 20, 23, 0.1);
+`;

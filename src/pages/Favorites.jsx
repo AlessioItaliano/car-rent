@@ -1,44 +1,47 @@
 import { useState, useEffect } from 'react';
+
 import { useFavorites } from 'hooks/useFavorites';
-import { fetchCarsById, fetchAll } from 'api/fetchcars';
+import { fetchCarsById } from 'api/fetchcars';
 
 import Loader from 'components/Loader';
 import CarList from 'components/CarList';
 import Section from 'components/Section';
 import SearchBar from 'components/SearchBar';
 import LoadMoreBtn from 'components/LoadMoreBtn';
+import EmptyPage from 'components/EmptyPage';
 
 const Favorites = () => {
   const [favorites] = useFavorites();
   const [page, setPage] = useState(1);
-  const [totalCars, setTotalCars] = useState(0);
+  // const [totalCars, setTotalCars] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [favoritesCars, setFavoritesCars] = useState([]);
 
-  useEffect(() => {
-    const getAllCars = async () => {
-      try {
-        const data = await fetchAll();
-        setTotalCars(data.length);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getAllCars();
-  }, []);
+  // useEffect(() => {
+  //   const getAllCars = async () => {
+  //     try {
+  //       const data = await fetchAll();
+  //       setTotalCars(data.length);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   getAllCars();
+  // }, []);
 
   useEffect(() => {
     setIsLoading(true);
 
     const getFavoritCars = async () => {
       try {
-        const promises = favorites.map(id => fetchCarsById(id));
+        const favoriteCarData = [];
 
-        const responses = await Promise.all(promises);
+        for (const id of favorites) {
+          const response = await fetchCarsById(id);
+          favoriteCarData.push(response);
+        }
 
-        const favoriteCar = responses.map(response => response.data);
-
-        setFavoritesCars(favoriteCar);
+        setFavoritesCars(favoriteCarData);
       } catch (error) {
         console.log(error);
       } finally {
@@ -60,12 +63,19 @@ const Favorites = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <Section>
-          <CarList cars={favoritesCars} />
-          {favoritesCars.length < totalCars && favoritesCars.length > 8 && (
-            <LoadMoreBtn onNextPage={onNextPage} />
+        <>
+          {!favorites.length ? (
+            <EmptyPage />
+          ) : (
+            <Section>
+              <CarList cars={favoritesCars} />
+              {favoritesCars.length < favorites.length &&
+                favoritesCars.length > 8 && (
+                  <LoadMoreBtn onNextPage={onNextPage} />
+                )}
+            </Section>
           )}
-        </Section>
+        </>
       )}
     </>
   );
