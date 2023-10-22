@@ -1,17 +1,23 @@
 import styled from 'styled-components';
+import { variables } from '../../stylesheet/variables';
 
 export const Container = styled.div`
-  background: linear-gradient(to top, #191970, lightblue, #000212);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   padding-left: 29px;
   padding-right: 29px;
   margin-right: auto;
   margin-left: auto;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background: linear-gradient(
+    to top,
+    ${variables.colors.bgMainPrimaryGrad},
+    ${variables.colors.bgMainSecondaryGrad},
+    ${variables.colors.bgMainThirdGrad}
+  );
 `;
 
 export const Title = styled.h2`
