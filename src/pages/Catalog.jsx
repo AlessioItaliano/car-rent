@@ -5,7 +5,7 @@ import { fetchCars, fetchAll } from 'api/fetchcars';
 import Loader from 'components/Loader';
 import CarList from 'components/CarList';
 import Section from 'components/Section';
-import SearchBar from 'components/SerchBar';
+import SearchBar from 'components/SearchBar';
 import LoadMoreBtn from 'components/LoadMoreBtn';
 
 const Catalog = () => {

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from 'components/Button';
 
 import * as s from './SearchBar.styled';
-import SideBar from 'components/SideBar';
+import SideBar from 'components/new';
 
 const SearchBar = () => {
   const [shownSideBar, setShowSideBar] = useState(false);
