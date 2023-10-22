@@ -12,17 +12,19 @@ const SearchBar = () => {
   };
 
   return (
-    <s.Container>
-      <div onClick={onSideBar}>
-        <Button>Navigation</Button>
-      </div>
-      {shownSideBar && <SideBar onClose={onSideBar} />}
+    <s.Box>
+      <s.Container>
+        <div onClick={onSideBar}>
+          <Button>Navigation</Button>
+        </div>
+        {shownSideBar && <SideBar onClose={onSideBar} />}
 
-      <input></input>
-      <div>
-        <Button>Search</Button>
-      </div>
-    </s.Container>
+        <input></input>
+        <div>
+          <Button>Search</Button>
+        </div>
+      </s.Container>
+    </s.Box>
   );
 };
 

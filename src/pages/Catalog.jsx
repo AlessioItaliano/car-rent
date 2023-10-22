@@ -49,7 +49,9 @@ const Catalog = () => {
 
   return (
     <>
-      <SearchBar />
+      <Section>
+        <SearchBar />
+      </Section>
       {isLoading ? (
         <Loader />
       ) : (

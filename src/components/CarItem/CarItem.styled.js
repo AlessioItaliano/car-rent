@@ -35,12 +35,14 @@ export const Description = styled.div`
   font-weight: 500;
   line-height: 24px;
 
-  // margin-bottom: 28px;
+  margin-top: 14px;
 `;
 
 export const MainDesctiption = styled.div`
   display: flex;
   justify-content: space-between;
+
+  margin-bottom: 8px;
 `;
 
 export const AdditionalDesctiption = styled.span`
