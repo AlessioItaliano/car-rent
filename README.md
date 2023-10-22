@@ -1,6 +1,6 @@
 # Car RENTAL
+Gretings and welcome on our best rent website!
 
-About Our Website
 This website is built on the React framework, providing users with a simple and convenient way to rent cars. 
 You can see three pages.
 
