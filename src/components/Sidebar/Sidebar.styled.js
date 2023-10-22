@@ -9,10 +9,6 @@ export const Backdrop = styled.div`
   width: 100vw;
   height: 100vh;
 
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-
   background-color: rgba(18, 20, 23, 0.5);
 `;
 
