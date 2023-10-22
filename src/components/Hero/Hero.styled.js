@@ -12,7 +12,7 @@ export const Hero = styled.div`
   justify-content: space-between;
 
   height: 70vh;
-  padding: 300px 100px 100px 100px;
+  padding: 200px 100px 100px 100px;
   margin: 0 auto 0 auto;
 
   background-repeat: no-repeat;

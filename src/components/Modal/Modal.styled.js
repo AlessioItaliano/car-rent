@@ -15,7 +15,7 @@ export const Backdrop = styled.div`
   width: 100vw;
   height: 100vh;
 
-  background-color: ${variables.colors.scroll};
+  background-color: ${variables.colors.secondary};
 `;
 
 export const ModalField = styled.div`
@@ -51,6 +51,5 @@ export const IconBtn = styled(CloseIconBtn)`
   width: 100%;
   height: 100%;
 
-  color:   background-color: ${variables.colors.black};
-
+  color: ${variables.colors.black};
 `;

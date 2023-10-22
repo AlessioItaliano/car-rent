@@ -5,7 +5,7 @@ const CatItemModal = ({ onClose, car }) => {
   return (
     <>
       <Modal onClose={onClose}>
-        <CarItemForm car={car} />
+        <CarItemForm onClose={onClose} car={car} />
       </Modal>
     </>
   );
