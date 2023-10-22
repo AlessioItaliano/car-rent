@@ -33,7 +33,6 @@ const Catalog = () => {
       const fetchData = async () => {
         const data = await fetchCars(page);
         setCurrentCars(prevState => [...prevState, ...data]);
-        // setCurrentCars([...currentCars, ...data]);
       };
       fetchData();
     } catch (error) {
