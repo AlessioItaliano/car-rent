@@ -3,20 +3,19 @@ import styled from 'styled-components';
 export const Container = styled.div`
   background: linear-gradient(to top, #191970, lightblue, #000212);
 
-  padding: 60px;
-
-  //   width: 1200px;
-  margin-left: auto;
+  padding-left: 29px;
+  padding-right: 29px;
   margin-right: auto;
-  //   padding-left: 15px;
-  //   padding-right: 15px;
+  margin-left: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Title = styled.h2`
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   font-family: Gotham Pro;
   font-size: 50px;
@@ -29,11 +28,11 @@ export const Title = styled.h2`
 
 export const List = styled.ul`
   display: flex;
-
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 30px;
+  width: 1240px;
 `;
 
 export const Item = styled.li`

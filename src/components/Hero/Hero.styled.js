@@ -1,14 +1,21 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import image from '../../images/hero-desktop-x2.jpeg';
+import imageX1 from '../../images/hero-desktop-x1.jpeg';
+import imageX2 from '../../images/hero-desktop-x2.jpeg';
 
 export const Hero = styled.div`
   display: flex;
   flex-direction: column;
-  // align-items: center;
+  align-items: center;
   justify-content: space-between;
-  background-color: blue; /////!!!!
-  background-image: url(${image});
+  background-color: #000212;
+  background-image: url(${imageX1});
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(${imageX2});
+  }
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -18,6 +25,15 @@ export const Hero = styled.div`
 
   padding: 200px 100px 100px 100px;
   margin: 0 auto 0 auto;
+`;
+
+export const HeroContainer = styled.div`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  // align-items: center;
+  justify-content: space-between;
+  width: 600px;
 `;
 
 //  background-image: linear-gradient(to top, $gradient-bg-cl, $gradient-bg-cl),

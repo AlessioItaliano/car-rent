@@ -1,7 +1,15 @@
-import * as s from './CarItem.styled';
+import { useFavorites } from 'hooks/useFavorites';
+
 import CarItemBtn from 'components/CarItemBtn';
 
+import { ReactComponent as IconFavorite } from '../../icons/Catalog/heart-active.svg';
+import { ReactComponent as IconNotFavorite } from '../../icons/Catalog/heart-normal.svg';
+
+import * as s from './CarItem.styled';
+
 const ListItem = ({ car }) => {
+  const [, isFavorite, setIsFavorite] = useFavorites();
+
   const {
     id,
     img,
@@ -15,12 +23,32 @@ const ListItem = ({ car }) => {
     rentalCompany,
   } = car;
 
-  const [, city, country] = address.match(/,\s([^,]+),\s([^,]+)$/);
+  const handleFavorite = e => {
+    e.stopPropagation();
+    setIsFavorite(car.id);
+  };
+
+  const companyAddress = address.split(',');
+  const country = companyAddress[2];
+  const city = companyAddress[1];
   const mainAccessor = accessories[0];
 
   return (
     <s.Container>
       <s.Foto src={img} alt="Car image" />
+
+      <s.FavoriteContainer onClick={handleFavorite}>
+        {isFavorite(car.id) ? (
+          <s.StyledActiveIcon>
+            <IconFavorite />
+          </s.StyledActiveIcon>
+        ) : (
+          <s.StyledNormalIcon>
+            <IconNotFavorite />
+          </s.StyledNormalIcon>
+        )}
+      </s.FavoriteContainer>
+
       <s.Description>
         <s.MainDesctiption>
           <span>
@@ -39,5 +67,4 @@ const ListItem = ({ car }) => {
     </s.Container>
   );
 };
-
 export default ListItem;

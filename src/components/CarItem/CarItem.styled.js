@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   width: 274px;
   height: 426px;
+  position: relative;
 `;
 
 export const Foto = styled.img`
@@ -70,4 +71,23 @@ export const Model = styled.span`
 export const IconBox = styled.div`
   height: 16px;
   color: rgba(18, 20, 23, 0.1);
+`;
+
+export const FavoriteContainer = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+`;
+
+export const StyledActiveIcon = styled.div`
+  width: 18px;
+  height: 18px;
+  color: rgba(52, 112, 255, 1);
+`;
+
+export const StyledNormalIcon = styled.div`
+  width: 18px;
+  height: 18px;
+  color: rgba(255, 255, 255, 0.8);
 `;

@@ -1,20 +1,21 @@
 import styled from 'styled-components';
 
-export const Container = styled.footer`
+export const Footer = styled.footer`
   background: linear-gradient(to top, #000212, #191970);
 
-  height: 200px;
+  padding: 50px 29px 150px 29px;
 
-  margin-left: auto;
   margin-right: auto;
-  padding: 60px;
+  margin-left: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Title = styled.h2`
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   margin-bottom: 30px;
 
@@ -36,6 +37,7 @@ export const Address = styled.address`
   align-items: center;
   justify-content: center;
   gap: 80px;
+  width: 1240px;
 `;
 
 export const AddressItem = styled.a`

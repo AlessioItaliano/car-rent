@@ -24,7 +24,7 @@ export const Field = styled.aside`
   border-top-right-radius: 24px;
   border-bottom-right-radius: 24px;
 
-  background-color: #fff;
+  background: linear-gradient(to top, #000212, #191970);
 `;
 
 export const CloseButton = styled.button`
@@ -53,7 +53,7 @@ export const IconBtn = styled(CloseIconBtn)`
 
 export const Title = styled.h2`
   text-transform: uppercase;
-  color: black;
+  color: white;
   font-size: 40px;
   font-weight: bold;
 

@@ -12,15 +12,16 @@ const Hero = () => {
 
   return (
     <s.Hero>
-      <s.Title>
-        RENTAL <br />- one click and the car is yours!
-      </s.Title>
-
-      <s.MainButton>
-        <s.Link to="/catalog">
-          <Button>Find car!</Button>
-        </s.Link>
-      </s.MainButton>
+      <s.HeroContainer>
+        <s.Title>
+          RENTAL <br />- the best way to find a car!
+        </s.Title>{' '}
+        <s.MainButton>
+          <s.Link to="/catalog">
+            <Button>Find car!</Button>
+          </s.Link>
+        </s.MainButton>
+      </s.HeroContainer>
     </s.Hero>
   );
 };

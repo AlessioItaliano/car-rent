@@ -6,7 +6,7 @@ import { ReactComponent as Telephone } from '../../icons/MainPage/telephone.svg'
 
 const Footer = () => {
   return (
-    <s.Container>
+    <s.Footer>
       <s.Title>Contacts</s.Title>
       <s.Address>
         <s.AddressItem
@@ -34,7 +34,7 @@ const Footer = () => {
           +38 073 00 00 000
         </s.AddressItem>
       </s.Address>
-    </s.Container>
+    </s.Footer>
   );
 };
 
