@@ -1,25 +1,76 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { ReactComponent as CloseIconBtn } from '../../icons/Catalog/x-close.svg';
 
-export const Aside = styled.aside`
-  padding: 20px;
-  width: 200px;
+export const Backdrop = styled.div`
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+
+  background-color: rgba(18, 20, 23, 0.5);
 `;
 
-export const Title = styled.span`
-  /* text-transform: uppercase;
-  text-shadow: 0 1px 0 #cac8c8, 0 2px 0 #c7c5c5, 0 3px 0 #bbbaba,
-    0 4px 0 #b7b6b6, 0 5px 0 #a9a6a6; */
-  margin: 0;
-  text-transform: uppercase;
-  color: #0b5cc7;
-  font-size: 40px;
-  text-shadow: 0 1px 3px #6566c6, 0 2px 3px #7387e6, 0 3px 3px #8ca0d3,
-    0 4px 3px #bec6e9, 0 5px 3px #a9a6a6;
+export const Field = styled.aside`
+  position: absolute;
+
+  min-width: 400px;
+  height: 100vh;
+
+  padding: 100px 150px;
+  box-sizing: border-box;
+
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+
+  background-color: #fff;
 `;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  cursor: pointer;
+  border: none;
+
+  background-color: transparent;
+`;
+
+export const IconBtn = styled(CloseIconBtn)`
+  width: 100%;
+  height: 100%;
+
+  color: black;
+`;
+
+export const Title = styled.h2`
+  text-transform: uppercase;
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+
+  margin-bottom: 150px;
+`;
+
 export const Nav = styled.nav`
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding-top: 30px;
+  gap: 50px;
+  //   padding-top: 30px;
+`;
+
+export const StyledLink = styled(NavLink)`
+  text-decoration: none;
 `;

@@ -2,34 +2,45 @@ import { useState, useEffect } from 'react';
 
 import { fetchCars, fetchAll } from 'api/fetchcars';
 
+import Loader from 'components/Loader';
 import CarList from 'components/CarList';
 import Section from 'components/Section';
+import SearchBar from 'components/SerchBar';
 import LoadMoreBtn from 'components/LoadMoreBtn';
-import Loader from 'components/Loader';
 
 const Catalog = () => {
-  const [currentCars, setCurrentCars] = useState([]);
   const [page, setPage] = useState(1);
   const [totalCars, setTotalCars] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-
-  console.log(currentCars);
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentCars, setCurrentCars] = useState([]);
 
   useEffect(() => {
-    async function getAllCars() {
-      const data = await fetchAll();
-      setTotalCars(data.length);
-    }
+    const getAllCars = async () => {
+      try {
+        const data = await fetchAll();
+        setTotalCars(data.length);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     getAllCars();
   }, []);
 
   useEffect(() => {
-    async function fetchData() {
-      const data = await fetchCars(page);
-      setCurrentCars(prevState => [...prevState, ...data]);
+    setIsLoading(true);
+
+    try {
+      const fetchData = async () => {
+        const data = await fetchCars(page);
+        setCurrentCars(prevState => [...prevState, ...data]);
+        // setCurrentCars([...currentCars, ...data]);
+      };
+      fetchData();
+    } catch (error) {
+      console.log(error);
+    } finally {
       setIsLoading(false);
     }
-    fetchData();
   }, [page]);
 
   const onNextPage = () => {
@@ -38,6 +49,7 @@ const Catalog = () => {
 
   return (
     <>
+      <SearchBar />
       {isLoading ? (
         <Loader />
       ) : (
