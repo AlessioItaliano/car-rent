@@ -1,29 +1,31 @@
 import styled from 'styled-components';
+import { variables } from '../../stylesheet/variables';
 
 export const Footer = styled.footer`
-  background: linear-gradient(to top, #000212, #191970);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   padding: 50px 29px 150px 29px;
 
   margin-right: auto;
   margin-left: auto;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background: linear-gradient(
+    to top,
+    ${variables.colors.bgMainSecondaryGrad},
+    ${variables.colors.bgMainPrimaryGrad}
+  );
 `;
 
 export const Title = styled.h2`
-  color: #fff;
-
   margin-bottom: 30px;
 
-  font-family: Gotham Pro;
   font-size: 50px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
+
+  color: ${variables.colors.tertiary};
 `;
 
 export const InfoContainer = styled.div`
@@ -37,14 +39,17 @@ export const Address = styled.address`
   align-items: center;
   justify-content: center;
   gap: 80px;
+
   width: 1240px;
 `;
 
 export const AddressItem = styled.a`
   display: flex;
   gap: 10px;
-  fill: #fff;
-  color: #fff;
+
+  fill: ${variables.colors.tertiary};
+  color: ${variables.colors.tertiary};
+
   font-size: 24px;
   line-height: 1.71;
   text-decoration: none;

@@ -1,21 +1,43 @@
 @import-normalize;
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  color: rgba(18, 20, 23, 0.5);
+  font-weight: 400;
+  line-height: 1.5;
+
+  font-family: 'Manrope', Coolvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'Manrope' source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-ul {
-  list-style: none;
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
 }
@@ -23,68 +45,106 @@ ul {
 h1,
 h2,
 h3,
-p {
-  margin-top: 0;
-  margin-bottom: 0;
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
 }
 
-img {
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img,
+video {
   display: block;
-  max-width: 100%;
   height: auto;
+  width: 100%;
 }
 
-/* manrope-regular - latin */
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===================== FONTS ===================== */
+/* manrope-regular */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 400;
   src: url('../assets/fonts/manrope-v15-latin-regular.woff2') format('woff2'),
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-      url('../assets/fonts/manrope-v15-latin-regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+    url('../assets/fonts/manrope-v15-latin-regular.ttf') format('truetype');
 }
 
-/* manrope-500 - latin */
+/* manrope-500 */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 500;
   src: url('../assets/fonts/manrope-v15-latin-500.woff2') format('woff2'),
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-      url('../assets/fonts/manrope-v15-latin-500.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+    url('../assets/fonts/manrope-v15-latin-500.ttf') format('truetype');
 }
 
-/* manrope-600 - latin */
+/* manrope-600  */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 600;
   src: url('../assets/fonts/manrope-v15-latin-600.woff2') format('woff2'),
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-      url('../assets/fonts/manrope-v15-latin-600.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+    url('../assets/fonts/manrope-v15-latin-600.ttf') format('truetype');
 }
 
-/* montserrat-regular - latin */
+/* montserrat-regular */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
   src: url('../assets/fonts/montserrat-v26-latin-regular.woff2') format('woff2'),
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-      url('../assets/fonts/montserrat-v26-latin-regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+    url('../assets/fonts/montserrat-v26-latin-regular.ttf') format('truetype');
 }
 
-/* montserrat-600 - latin */
+/* montserrat-600  */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
   src: url('../assets/fonts/montserrat-v26-latin-600.woff2') format('woff2'),
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-      url('../assets/fonts/montserrat-v26-latin-600.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+    url('../assets/fonts/montserrat-v26-latin-600.ttf') format('truetype');
 }

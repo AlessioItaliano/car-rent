@@ -1,14 +1,25 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+
 import imageX1 from '../../images/hero-desktop-x1.jpeg';
 import imageX2 from '../../images/hero-desktop-x2.jpeg';
+
+import { variables } from '../../stylesheet/variables';
 
 export const Hero = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: #000212;
+
+  height: 70vh;
+  padding: 300px 100px 100px 100px;
+  margin: 0 auto 0 auto;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  background-color: ${variables.colors.bgMainSecondaryGrad};
   background-image: url(${imageX1});
 
   @media (min-device-pixel-ratio: 2),
@@ -16,33 +27,26 @@ export const Hero = styled.div`
     (min-resolution: 2dppx) {
     background-image: url(${imageX2});
   }
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
-  height: 400px;
-
-  padding: 200px 100px 100px 100px;
-  margin: 0 auto 0 auto;
 `;
 
 export const HeroContainer = styled.div`
   display: flex;
   height: 100%;
   flex-direction: column;
-  // align-items: center;
   justify-content: space-between;
-  width: 600px;
+
+  width: 1000px;
 `;
 
-//  background-image: linear-gradient(to top, $gradient-bg-cl, $gradient-bg-cl),
-
 export const Title = styled.h1`
-  color: white;
+  font-size: 50px;
+  font-weight: bold;
+
+  color: ${variables.colors.tertiary};
+
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 1s forwards;
+  animation: fadeInUp 4s forwards;
 
   @keyframes fadeInUp {
     0% {
@@ -59,10 +63,4 @@ export const Title = styled.h1`
 export const MainButton = styled.div`
   display: flex;
   justify-content: center;
-`;
-
-export const Link = styled(NavLink)`
-  text-decoration: none;
-
-  }
 `;

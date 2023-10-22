@@ -13,6 +13,7 @@ const Footer = () => {
           href="https://maps.app.goo.gl/Nn91EEDCjRWRciRZ9"
           target="_blank"
           rel="noopener noreferrer nofollow"
+          aria-label="Company address"
         >
           <s.Icon>
             <Address />
@@ -20,14 +21,17 @@ const Footer = () => {
           м. Львів, пр-т Свободи, 12
         </s.AddressItem>
 
-        <s.AddressItem href="mailto:info@rental.com">
+        <s.AddressItem
+          href="mailto:info@rental.com"
+          aria-label="Write email info@rental.com"
+        >
           <s.Icon>
             <Mail />
           </s.Icon>
           info@rental.com
         </s.AddressItem>
 
-        <s.AddressItem href="tel:+380730000000">
+        <s.AddressItem href="tel:+380730000000" aria-label="Call +380730000000">
           <s.Icon>
             <Telephone />
           </s.Icon>

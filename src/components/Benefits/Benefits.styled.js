@@ -15,20 +15,16 @@ export const Container = styled.div`
   background: linear-gradient(
     to top,
     ${variables.colors.bgMainPrimaryGrad},
-    ${variables.colors.bgMainSecondaryGrad},
-    ${variables.colors.bgMainThirdGrad}
+    ${variables.colors.bgMainThirdGrad},
+    ${variables.colors.bgMainSecondaryGrad}
   );
 `;
 
 export const Title = styled.h2`
-  color: #fff;
-
-  font-family: Gotham Pro;
   font-size: 50px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
 
+  color: ${variables.colors.tertiary};
   margin-bottom: 30px;
 `;
 
@@ -37,8 +33,9 @@ export const List = styled.ul`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
   gap: 30px;
-  width: 1240px;
+  width: 1000px;
 `;
 
 export const Item = styled.li`
@@ -47,36 +44,34 @@ export const Item = styled.li`
   justify-content: center;
   align-items: center;
 
-  padding: 20px;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 20px;
-
   flex-basis: 256px;
-  width: 100%;
-
   height: 265px;
   flex-shrink: 0;
+  width: 100%;
+  padding: 20px;
 
-  color: white;
-  border: 2px solid white;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 25px;
+
+  color: ${variables.colors.tertiary};
+  border: 3px solid ${variables.colors.tertiary};
 `;
 
 export const IconContainer = styled.div`
-  width: 109px;
-  height: 109px;
-  fill: white;
-
+  width: 120px;
+  height: 120px;
   margin-bottom: 17px;
+
+  fill: ${variables.colors.tertiary};
 `;
 
-export const ItemDescription = styled.p`
-  color: white;
-  width: 100%;
-
+export const ItemDescription = styled.div`
   display: flex;
-
   justify-content: center;
   align-items: center;
+
+  width: 100%;
+
+  color: ${variables.colors.tertiary};
 `;

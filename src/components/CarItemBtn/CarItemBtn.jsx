@@ -17,7 +17,7 @@ const CatItemBtn = ({ car }) => {
       <s.MainButton onClick={onModal}>
         <Button>Learn more</Button>
       </s.MainButton>
-      {shownModal && <CarItemModal onClose={onModal} car={car} />}
+      {shownModal && <CarItemModal car={car} />}
     </>
   );
 };

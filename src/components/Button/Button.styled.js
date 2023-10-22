@@ -1,26 +1,27 @@
 import styled from 'styled-components';
+import { variables } from '../../stylesheet/variables';
 
 export const Button = styled.button`
   display: flex;
-  width: 274px;
-  // padding: 12px 99px;
-  padding: 12px 0 12px 0;
   justify-content: center;
   align-items: center;
+
+  width: 274px;
+  padding: 12px 0;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.42;
+
   cursor: pointer;
 
   border-radius: 12px;
   border-color: transparent;
-  background: #3470ff;
+  background: ${variables.colors.accent};
 
-  color: #fff;
-  font-family: Manrope;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 20px;
+  color: ${variables.colors.tertiary};
 
   &:hover {
-    background-color: #0b44cd;
+    background-color: ${variables.colors.accentHover};
   }
 `;

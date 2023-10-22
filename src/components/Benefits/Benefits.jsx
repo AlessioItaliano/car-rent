@@ -32,16 +32,14 @@ const Benefits = () => {
           <s.IconContainer>
             <Time />
           </s.IconContainer>
-          <s.ItemDescription>24/7 customer support</s.ItemDescription>
+          <s.ItemDescription>24/7 support</s.ItemDescription>
         </s.Item>
 
         <s.Item>
           <s.IconContainer>
             <Service />
           </s.IconContainer>
-          <s.ItemDescription>
-            Verified technical condition of the vehicles
-          </s.ItemDescription>
+          <s.ItemDescription>Verified condition</s.ItemDescription>
         </s.Item>
         <s.Item>
           <s.IconContainer>
@@ -53,7 +51,7 @@ const Benefits = () => {
           <s.IconContainer>
             <Shield />
           </s.IconContainer>
-          <s.ItemDescription>All deals are insured</s.ItemDescription>
+          <s.ItemDescription>Insured deals</s.ItemDescription>
         </s.Item>
       </s.List>
     </s.Container>
