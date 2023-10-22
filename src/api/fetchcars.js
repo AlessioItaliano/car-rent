@@ -17,3 +17,10 @@ export async function fetchCars(page) {
 
   return cars.data;
 }
+
+export async function fetchCarsById(id) {
+  const cars = await axios.get(`/adverts/${id}`);
+  console.log(cars.data);
+
+  return cars.data;
+}
