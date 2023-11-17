@@ -22,8 +22,6 @@ const Catalog = () => {
   // const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
 
-  console.log(cars);
-
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
   const [showButton, setShowButton] = useState(false);

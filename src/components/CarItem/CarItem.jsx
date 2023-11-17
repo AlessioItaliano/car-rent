@@ -4,6 +4,7 @@ import CarItemBtn from 'components/CarItemBtn';
 
 import { ReactComponent as IconFavorite } from '../../icons/Catalog/heart-active.svg';
 import { ReactComponent as IconNotFavorite } from '../../icons/Catalog/heart-normal.svg';
+import noImg from '../../images/noImage.jpeg';
 
 import * as s from './CarItem.styled';
 
@@ -35,7 +36,11 @@ const ListItem = ({ car }) => {
 
   return (
     <s.Container>
-      <s.Foto src={img} alt="Car image" />
+      {img ? (
+        <s.Foto src={img} alt="Car_image" />
+      ) : (
+        <s.Foto src={noImg} alt="Car_image" />
+      )}
 
       <s.FavoriteContainer onClick={handleFavorite}>
         {isFavorite(car.id) ? (

@@ -25,6 +25,14 @@ export const Foto = styled.img`
   );
 `;
 
+// export const noImage = styled.img`
+//   border-radius: 12px;
+//   display: block;
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// `;
+
 export const Description = styled.div`
   margin-top: 14px;
   flex-grow: 1;
