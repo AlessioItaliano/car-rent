@@ -7,7 +7,7 @@ export const Footer = styled.footer`
   justify-content: center;
   align-items: center;
 
-  padding: 50px 29px 150px 29px;
+  padding: 50px;
 
   margin-right: auto;
   margin-left: auto;
@@ -41,6 +41,7 @@ export const Address = styled.address`
   gap: 80px;
 
   width: 1240px;
+  margin-bottom: 30px;
 `;
 
 export const AddressItem = styled.a`
@@ -58,4 +59,15 @@ export const AddressItem = styled.a`
 export const Icon = styled.div`
   width: 25px;
   height: 25px;
+`;
+
+export const CopyRight = styled.p`
+  color: ${variables.colors.tertiary};
+  font-size: 20px;
+  line-height: 1.71;
+`;
+
+export const Link = styled.a`
+  text-decoration: underline;
+  color: ${variables.colors.accent};
 `;

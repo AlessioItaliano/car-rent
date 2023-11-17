@@ -9,6 +9,8 @@ import {
   selectIsLoading,
 } from 'redux/cars/carsSelectors';
 
+import Header from 'components/Header';
+import Footer from 'components/Footer';
 import Loader from 'components/Loader';
 import CarList from 'components/CarList';
 import Section from 'components/Section';
@@ -37,8 +39,8 @@ const Catalog = () => {
       }
 
       if (page > 1) {
-        const { payload } = await dispatch(getRestOfCars(page));
-        if (payload.length >= 8) {
+        const response = await dispatch(getRestOfCars(page));
+        if (response.payload.length >= 8) {
           setShowButton(true);
         } else {
           setShowButton(false);
@@ -87,6 +89,7 @@ const Catalog = () => {
 
   return (
     <>
+      <Header />
       <Section>
         <SearchBar />
       </Section>
@@ -99,6 +102,7 @@ const Catalog = () => {
           {showButton && <LoadMoreBtn onNextPage={onNextPage} />}
         </Section>
       )}
+      <Footer />
     </>
   );
 };

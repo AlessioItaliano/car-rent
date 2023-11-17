@@ -38,6 +38,14 @@ const Footer = () => {
           +38 073 00 00 000
         </s.AddressItem>
       </s.Address>
+      <div>
+        <s.CopyRight>
+          Copyright © 2023 RENTAL. Created by{' '}
+          <s.Link href="https://www.linkedin.com/in/vasyl-lepish/">
+            Vasyl Lepish
+          </s.Link>
+        </s.CopyRight>
+      </div>
     </s.Footer>
   );
 };
