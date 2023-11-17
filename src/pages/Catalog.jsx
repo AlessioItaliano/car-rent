@@ -2,7 +2,10 @@ import { useState, useEffect } from 'react';
 
 // import { fetchCars, fetchAll } from 'api/fetchcars';
 import { useSelector, useDispatch } from 'react-redux';
-import { getFirstCarsPage, getRestOfCars } from '../redux/cars/carsOperations';
+import {
+  // getFirstCarsPage,
+  getRestOfCars,
+} from '../redux/cars/carsOperations';
 import {
   selectCars,
   // selectError,
@@ -30,20 +33,28 @@ const Catalog = () => {
   // const [currentCars, setCurrentCars] = useState([]);
 
   useEffect(() => {
+    // const fetchData = async () => {
     const fetchData = async () => {
-      if (page === 1) {
-        dispatch(getFirstCarsPage());
+      const { payload } = await dispatch(getRestOfCars(page));
+      // setCurrentCars(prevState => [...prevState, ...payload]);
+      if (payload.length >= 8) {
         setShowButton(true);
+      } else {
+        setShowButton(false);
       }
+      //   if (page === 1) {
+      //     dispatch(getRestOfCars(page));
+      //     setShowButton(true);
+      //   }
 
-      if (page > 1) {
-        const response = await dispatch(getRestOfCars(page));
-        if (response.payload.length >= 8) {
-          setShowButton(true);
-        } else {
-          setShowButton(false);
-        }
-      }
+      //   if (page > 1) {
+      //     const response = await dispatch(getRestOfCars(page));
+      //     if (response.payload.length >= 8) {
+      //       setShowButton(true);
+      //     } else {
+      //       setShowButton(false);
+      //     }
+      //   }
     };
 
     fetchData();

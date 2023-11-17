@@ -9,7 +9,7 @@ import mainLogo from '../../images/logo512.png';
 const Header = () => {
   return (
     <s.Header>
-      <s.Logo>
+      <s.Logo to="/">
         <img src={mainLogo} alt="Rental logo" />
         <s.Title>Rental</s.Title>
       </s.Logo>

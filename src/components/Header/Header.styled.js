@@ -20,11 +20,13 @@ export const Header = styled.header`
   );
 `;
 
-export const Logo = styled.div`
+export const Logo = styled(NavLink)`
   display: flex;
   width: 70px;
   height: auto;
   gap: 5px;
+
+  cursor: pointer;
 `;
 
 export const Title = styled.h2`
