@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import noImg from '../../images/noImage.jpeg';
+
 import { variables } from '../../stylesheet/variables';
 
 export const Container = styled.div`
@@ -12,9 +14,17 @@ export const Container = styled.div`
 `;
 
 export const Foto = styled.img`
-  width: 274px;
-  height: 280px;
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 12px;
   object-fit: cover;
+`;
+
+export const ImgBox = styled.div`
+  width: 274px;
+  height: 254px;
 
   border-radius: 12px;
 
@@ -23,15 +33,12 @@ export const Foto = styled.img`
     ${variables.colors.scroll} 2.5%,
     ${variables.colors.lineDivider} 41.07%
   );
-`;
 
-// export const noImage = styled.img`
-//   border-radius: 12px;
-//   display: block;
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-// `;
+  background-image: url(${noImg});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+`;
 
 export const Description = styled.div`
   margin-top: 14px;

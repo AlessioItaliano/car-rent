@@ -1,9 +1,9 @@
 import * as s from './LoadMoreBtn.styled';
 
-const LoadMoreBtn = ({ onNextPage }) => {
+const LoadMoreBtn = ({ onLoadMore }) => {
   return (
     <s.Container>
-      <s.Button onClick={onNextPage}>Load more</s.Button>
+      <s.Button onClick={onLoadMore}>Load more</s.Button>
     </s.Container>
   );
 };
