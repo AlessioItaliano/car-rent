@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import Layout from 'components/Layout';
+import Layout from 'components/Layout/Layout';
 
 const HomePage = lazy(() => import('pages/Home'));
 const CatalogPage = lazy(() => import('pages/Catalog'));
@@ -19,6 +19,3 @@ export const App = () => {
     </Routes>
   );
 };
-
-// /catalog
-// /favorites

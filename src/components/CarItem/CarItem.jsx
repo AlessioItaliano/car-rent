@@ -1,14 +1,21 @@
-import { useFavorites } from 'hooks/useFavorites';
+// import { useFavorites } from 'hooks/useFavorites';
+import { useDispatch, useSelector } from 'react-redux';
 
 import CarItemBtn from 'components/CarItemBtn';
 
 import { ReactComponent as IconFavorite } from '../../icons/Catalog/heart-active.svg';
 import { ReactComponent as IconNotFavorite } from '../../icons/Catalog/heart-normal.svg';
 
+import { selectFavoritesCars } from 'redux/favorites/favoritesSelectors';
+import { addFavorite, removeFavorite } from 'redux/favorites/favoritesSlice';
+
 import * as s from './CarItem.styled';
 
 const CarItem = ({ car }) => {
-  const [, isFavorite, setIsFavorite] = useFavorites();
+  const dispatch = useDispatch();
+  const favoritesCarsList = useSelector(selectFavoritesCars);
+
+  // const [, isFavorite, setIsFavorite] = useFavorites();
 
   const {
     id,
@@ -23,15 +30,24 @@ const CarItem = ({ car }) => {
     rentalCompany,
   } = car;
 
-  const handleFavorite = e => {
-    e.stopPropagation();
-    setIsFavorite(car.id);
-  };
-
   const companyAddress = address.split(',');
   const country = companyAddress[2];
   const city = companyAddress[1];
   const mainAccessor = accessories[0];
+
+  const handleFavorite = e => {
+    // e.stopPropagation();
+    if (isFavorite(car.id)) {
+      dispatch(removeFavorite(car.id));
+    } else {
+      dispatch(addFavorite(car.id));
+    }
+  };
+
+  // const filterContacts = ({ currentTarget: { value } }) => {
+  //   const normalizedValue = value.toLowerCase().trim();
+  //   dispatch(favoritesCarsList(car.id));
+  // };
 
   return (
     <s.Container>
@@ -40,7 +56,7 @@ const CarItem = ({ car }) => {
       </s.ImgBox>
 
       <s.FavoriteContainer onClick={handleFavorite}>
-        {isFavorite(car.id) ? (
+        {!addFavorite(car.id) ? (
           <s.StyledActiveIcon>
             <IconFavorite />
           </s.StyledActiveIcon>

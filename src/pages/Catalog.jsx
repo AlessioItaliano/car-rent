@@ -12,8 +12,6 @@ import {
   selectIsLoading,
 } from 'redux/cars/carsSelectors';
 
-import Header from 'components/Header';
-import Footer from 'components/Footer';
 import Loader from 'components/Loader';
 import CarList from 'components/CarList';
 import Section from 'components/Section';
@@ -139,7 +137,6 @@ const Catalog = () => {
 
   return (
     <>
-      <Header />
       <Section>
         <SearchBar />
       </Section>
@@ -151,7 +148,6 @@ const Catalog = () => {
           {showButton && <LoadMoreBtn onLoadMore={onLoadMore} />}
         </Section>
       )}
-      <Footer />
     </>
   );
 };
