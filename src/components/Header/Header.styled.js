@@ -12,6 +12,7 @@ export const Header = styled.header`
 
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 60px;
 
   background: linear-gradient(
     to top,
