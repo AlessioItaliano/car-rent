@@ -4,6 +4,7 @@ import RentButton from 'components/RentButton';
 
 import makes from 'makes.json';
 
+import { variables } from '../../stylesheet/variables';
 import * as s from './SearchBar.styled';
 
 const SearchBar = () => {
@@ -11,7 +12,6 @@ const SearchBar = () => {
   const [selectedPrice, setSelectedPrice] = useState(null);
   const [mileageMin, setMileageMin] = useState('');
   const [mileageMax, setMileageMax] = useState('');
-  // console.log(selectedOption);
 
   const CarMakeList = makes.map(make => ({
     value: `${make}`,
@@ -36,6 +36,9 @@ const SearchBar = () => {
 
   const handleMileage = () => {};
 
+  const handleSearch = async e => {
+    e.preventDefault();
+  };
   const clearFields = () => {
     setSelectedOption(null);
     setSelectedPrice(null);
@@ -57,6 +60,24 @@ const SearchBar = () => {
             value={selectedOption}
             placeholder={'Enter the text'}
             onChange={setSelectedOption}
+            styles={{
+              control: provided => ({
+                ...provided,
+                backgroundColor: variables.colors.bgInput,
+                color: variables.colors.primary,
+                borderRadius: '12px',
+                height: '48px',
+                border: 'none',
+              }),
+              indicatorSeparator: () => ({ display: 'none' }),
+              dropdownIndicator: (base, state) => ({
+                ...base,
+                transition: 'transform 0.5s',
+                transform: state.selectProps.menuIsOpen
+                  ? 'rotate(180deg)'
+                  : 'none',
+              }),
+            }}
           />
         </s.CarBrandFilterBox>
 
@@ -71,6 +92,24 @@ const SearchBar = () => {
             value={selectedPrice}
             placeholder={'To $'}
             onChange={setSelectedPrice}
+            styles={{
+              control: provided => ({
+                ...provided,
+                backgroundColor: variables.colors.bgInput,
+                color: variables.colors.primary,
+                borderRadius: '12px',
+                height: '48px',
+                border: 'none',
+              }),
+              indicatorSeparator: () => ({ display: 'none' }),
+              dropdownIndicator: (base, state) => ({
+                ...base,
+                transition: 'transform 0.5s',
+                transform: state.selectProps.menuIsOpen
+                  ? 'rotate(180deg)'
+                  : 'none',
+              }),
+            }}
           />
         </s.PriceFilterBox>
 
@@ -82,7 +121,9 @@ const SearchBar = () => {
               <s.InputFieldMin
                 minLength="3"
                 maxLength="6"
-                inputMode="numeric"
+                format="##,###"
+                decimalScale={3}
+                thousandSeparator={true}
                 value={mileageMin}
                 onChange={handleMileage}
               />
@@ -92,7 +133,9 @@ const SearchBar = () => {
               <s.InputFieldMax
                 minLength="3"
                 maxLength="6"
-                inputMode="numeric"
+                format="##,###"
+                decimalScale={3}
+                thousandSeparator={true}
                 value={mileageMax}
                 onChange={handleMileage}
               />
@@ -100,7 +143,7 @@ const SearchBar = () => {
           </s.MainLabelBox>
         </s.MileageBox>
 
-        <div>
+        <div onClick={handleSearch}>
           <RentButton>Search</RentButton>
         </div>
         <div onClick={clearFields}>

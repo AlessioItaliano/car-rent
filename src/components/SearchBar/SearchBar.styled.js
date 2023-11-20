@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import Select from 'react-select';
 
+import { NumericFormat } from 'react-number-format';
+
 import { variables } from '../../stylesheet/variables';
 
 export const Container = styled.div`
@@ -28,12 +30,11 @@ export const Label = styled.label`
 
 export const SelectForm = styled(Select)`
   width: 100%;
-  border-radius: 12px;
-  border: none;
+  height: 48px;
 
-  background: ${variables.colors.bgInput};
-
-  color: ${variables.colors.primary};
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.11;
 `;
 
 export const MileageBox = styled.div`
@@ -59,11 +60,15 @@ export const LabelInside = styled.span`
   color: ${variables.colors.primary};
 `;
 
-export const InputFieldMin = styled.input`
+export const InputFieldMin = styled(NumericFormat)`
   width: 160px;
   height: 48px;
 
   padding-left: 70px;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.11;
 
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
@@ -74,11 +79,15 @@ export const InputFieldMin = styled.input`
   color: ${variables.colors.primary};
 `;
 
-export const InputFieldMax = styled.input`
+export const InputFieldMax = styled(NumericFormat)`
   width: 160px;
   height: 48px;
 
-  padding-left: 47px;
+  padding-left: 49px;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.11;
 
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
