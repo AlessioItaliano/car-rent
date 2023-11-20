@@ -13,21 +13,15 @@ export const Container = styled.div`
   height: 426px;
 `;
 
-export const Foto = styled.img`
-  display: block;
-  width: 100%;
-  height: 100%;
-
-  border-radius: 12px;
-  object-fit: cover;
-`;
-
 export const ImgBox = styled.div`
   width: 274px;
   height: 254px;
 
   border-radius: 12px;
+  border: 1px solid ${variables.colors.secondary};
 
+  cursor: pointer;
+  transition: transform 1000ms linear, box-shadow 1000ms linear;
   background: linear-gradient(
     180deg,
     ${variables.colors.scroll} 2.5%,
@@ -38,6 +32,20 @@ export const ImgBox = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px ${variables.colors.primary};
+  }
+`;
+
+export const Foto = styled.img`
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 12px;
+  object-fit: cover;
 `;
 
 export const Description = styled.div`
@@ -98,4 +106,15 @@ export const StyledNormalIcon = styled.div`
   width: 18px;
   height: 18px;
   color: ${variables.colors.iconNorm};
+`;
+
+export const CarModel = styled.span`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+export const CarItemBtn = styled.div`
+  display: flex;
+  justify-content: center;
 `;

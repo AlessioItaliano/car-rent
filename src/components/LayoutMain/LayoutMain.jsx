@@ -1,16 +1,14 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import Header from 'components/Header';
-import Footer from 'components/Footer';
 import Loader from 'components/Loader';
+import Footer from 'components/Footer';
 
-import * as s from './Layout.styled';
+import * as s from './LayoutMain.styled';
 
-const Layout = () => {
+const LayoutMain = () => {
   return (
     <>
-      <Header />
       <s.Port>
         <Suspense fallback={<Loader />}>
           <Outlet />
@@ -21,4 +19,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default LayoutMain;

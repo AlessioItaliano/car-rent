@@ -5,8 +5,6 @@ import { variables } from '../../stylesheet/variables';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-
-  padding-top: 100px;
 `;
 
 export const Button = styled.button`

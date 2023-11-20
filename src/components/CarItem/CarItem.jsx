@@ -1,7 +1,8 @@
-// import { useFavorites } from 'hooks/useFavorites';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import CarItemBtn from 'components/CarItemBtn';
+import Button from 'components/Button';
+import CarItemModal from 'components/CarItemModal';
 
 import { ReactComponent as IconFavorite } from '../../icons/Catalog/heart-active.svg';
 import { ReactComponent as IconNotFavorite } from '../../icons/Catalog/heart-normal.svg';
@@ -14,8 +15,7 @@ import * as s from './CarItem.styled';
 const CarItem = ({ car }) => {
   const dispatch = useDispatch();
   const favoritesCarsList = useSelector(selectFavoritesCars);
-
-  // const [, isFavorite, setIsFavorite] = useFavorites();
+  const [shownModal, setShowModal] = useState(false);
 
   const {
     id,
@@ -36,27 +36,26 @@ const CarItem = ({ car }) => {
   const mainAccessor = accessories[0];
 
   const handleFavorite = e => {
-    // e.stopPropagation();
-    if (isFavorite(car.id)) {
-      dispatch(removeFavorite(car.id));
+    e.stopPropagation();
+    if (favoritesCarsList.some(favoriteCar => favoriteCar.id === car.id)) {
+      dispatch(removeFavorite(car));
     } else {
-      dispatch(addFavorite(car.id));
+      dispatch(addFavorite(car));
     }
   };
 
-  // const filterContacts = ({ currentTarget: { value } }) => {
-  //   const normalizedValue = value.toLowerCase().trim();
-  //   dispatch(favoritesCarsList(car.id));
-  // };
+  const onModal = () => {
+    setShowModal(prevShownModal => !prevShownModal);
+  };
 
   return (
     <s.Container>
-      <s.ImgBox>
+      <s.ImgBox onClick={onModal}>
         <s.Foto src={img} alt="Car_image" />
       </s.ImgBox>
 
       <s.FavoriteContainer onClick={handleFavorite}>
-        {!addFavorite(car.id) ? (
+        {favoritesCarsList.some(favoriteCar => favoriteCar.id === car.id) ? (
           <s.StyledActiveIcon>
             <IconFavorite />
           </s.StyledActiveIcon>
@@ -69,10 +68,10 @@ const CarItem = ({ car }) => {
 
       <s.Description>
         <s.MainDesctiption>
-          <span>
+          <s.CarModel>
             {make}
             <s.Model> {model}</s.Model>, {year}
-          </span>
+          </s.CarModel>
           <span>{rentalPrice}</span>
         </s.MainDesctiption>
 
@@ -81,7 +80,11 @@ const CarItem = ({ car }) => {
           {type} | {model} | {id} | {mainAccessor}
         </s.AdditionalDesctiption>
       </s.Description>
-      <CarItemBtn car={car} />
+      <s.CarItemBtn onClick={onModal}>
+        <Button>Learn more</Button>
+      </s.CarItemBtn>
+
+      {shownModal && <CarItemModal onClose={onModal} car={car} />}
     </s.Container>
   );
 };

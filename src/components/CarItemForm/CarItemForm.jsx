@@ -30,7 +30,9 @@ const CarItemForm = ({ car }) => {
 
   return (
     <>
-      <s.Foto src={img} alt="Car image" />
+      <s.ImgBox>
+        <s.Foto src={img} alt="Car image" />
+      </s.ImgBox>
       <s.MainDescription>
         {make}
         <s.Model> {model}</s.Model>, {year}

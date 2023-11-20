@@ -1,18 +1,37 @@
 import styled from 'styled-components';
+
+import noImg from '../../images/noImage.jpeg';
+
 import { variables } from '../../stylesheet/variables';
 
-export const Foto = styled.img`
+export const ImgBox = styled.div`
   width: 461px;
   height: 248px;
-  object-fit: cover;
+
+  margin-bottom: 10px;
 
   border-radius: 14px;
+  border: 1px solid ${variables.colors.secondary};
 
   background: linear-gradient(
     180deg,
-    ${variables.colors.secondary} 2.5%,
+    ${variables.colors.scroll} 2.5%,
     ${variables.colors.lineDivider} 41.07%
   );
+
+  background-image: url(${noImg});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+`;
+
+export const Foto = styled.img`
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 14px;
+  object-fit: cover;
 `;
 
 export const MainDescription = styled.div`
