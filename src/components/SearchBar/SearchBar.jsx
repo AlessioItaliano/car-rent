@@ -34,6 +34,10 @@ const SearchBar = () => {
   // const toggleClearable = () => {
   //   setIsClearable(!isClearable);
   // };
+  const clearFields = () => {
+    setSelectedOption(null);
+    setSelectedPrice(null);
+  };
 
   return (
     <s.Box>
@@ -67,8 +71,8 @@ const SearchBar = () => {
         <div>
           <Button>Search</Button>
         </div>
-        <div>
-          <Button>Clear</Button>
+        <div onClick={clearFields}>
+          <Button onClick={clearFields}>Clear all</Button>
         </div>
       </s.Container>
     </s.Box>
