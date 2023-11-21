@@ -74,7 +74,7 @@ export const InputFieldMin = styled(NumericFormat)`
   border-bottom-left-radius: 12px;
   border: none;
   border-right: 1px solid ${variables.colors.placeholder};
-  background: ${variables.colors.bgInput};
+  background-color: ${variables.colors.bgInput};
 
   color: ${variables.colors.primary};
 `;
@@ -92,7 +92,39 @@ export const InputFieldMax = styled(NumericFormat)`
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
   border: none;
-  background: ${variables.colors.bgInput};
+  background-color: ${variables.colors.bgInput};
 
   color: ${variables.colors.primary};
+`;
+
+export const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 12px 50px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.42;
+
+  cursor: pointer;
+
+  border-radius: 12px;
+  border-color: transparent;
+  background-color: ${variables.colors.accent};
+
+  color: ${variables.colors.tertiary};
+
+  &:focus,
+  &:hover {
+    background-color: ${variables.colors.accentHover};
+  }
+
+  &:disabled {
+    background-color: ${variables.colors.accent};
+
+    opacity: 0.7;
+    cursor: auto;
+  }
 `;

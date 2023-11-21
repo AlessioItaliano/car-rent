@@ -27,15 +27,10 @@ export const carsSlice = createSlice({
         state.error = action.error.message;
       })
 
-      // .addCase(getRestOfCars.pending, state => {
-      //   state.isLoading = true;
-      // })
       .addCase(getRestOfCars.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-
         state.cars = [...state.cars, ...action.payload];
-        // state.cars = action.payload;
       })
       .addCase(getRestOfCars.rejected, (state, action) => {
         state.isLoading = false;

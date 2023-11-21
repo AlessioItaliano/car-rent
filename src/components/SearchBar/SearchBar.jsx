@@ -1,17 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import RentButton from 'components/RentButton';
+import { getFilteredCars } from 'redux/filter/filterOperations';
 
 import makes from 'makes.json';
 
 import { variables } from '../../stylesheet/variables';
 import * as s from './SearchBar.styled';
+import { useDispatch } from 'react-redux';
 
 const SearchBar = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  const dispatch = useDispatch();
+  const [selectedBrand, setSelectedBrand] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState(null);
   const [mileageMin, setMileageMin] = useState('');
   const [mileageMax, setMileageMax] = useState('');
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const CarMakeList = makes.map(make => ({
     value: `${make}`,
@@ -34,17 +37,45 @@ const SearchBar = () => {
     return priceFunc();
   })();
 
-  const handleMileage = () => {};
+  const handleMileage = e => {};
 
   const handleSearch = async e => {
     e.preventDefault();
+
+    const fetchData = async () => {
+      try {
+        const response = await dispatch(
+          getFilteredCars(selectedBrand, selectedPrice, mileageMin, mileageMax)
+        );
+        console.log(response.payload);
+        // Handle the response or dispatch actions based on the response here
+      } catch (error) {
+        // Handle errors if necessary
+      }
+    };
+
+    fetchData();
   };
+
   const clearFields = () => {
-    setSelectedOption(null);
+    setSelectedBrand(null);
     setSelectedPrice(null);
     setMileageMin('');
     setMileageMax('');
   };
+
+  useEffect(() => {
+    if (
+      selectedBrand !== null ||
+      selectedPrice !== null ||
+      mileageMin !== '' ||
+      mileageMax !== ''
+    ) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [selectedBrand, selectedPrice, mileageMin, mileageMax]);
 
   return (
     <>
@@ -57,9 +88,9 @@ const SearchBar = () => {
             isClearable={true}
             isSearchable={true}
             options={CarMakeList}
-            value={selectedOption}
+            value={selectedBrand}
             placeholder={'Enter the text'}
-            onChange={setSelectedOption}
+            onChange={setSelectedBrand}
             styles={{
               control: provided => ({
                 ...provided,
@@ -76,6 +107,10 @@ const SearchBar = () => {
                 transform: state.selectProps.menuIsOpen
                   ? 'rotate(180deg)'
                   : 'none',
+              }),
+              placeholder: base => ({
+                ...base,
+                color: variables.colors.primary,
               }),
             }}
           />
@@ -108,6 +143,10 @@ const SearchBar = () => {
                 transform: state.selectProps.menuIsOpen
                   ? 'rotate(180deg)'
                   : 'none',
+              }),
+              placeholder: base => ({
+                ...base,
+                color: variables.colors.primary,
               }),
             }}
           />
@@ -143,12 +182,22 @@ const SearchBar = () => {
           </s.MainLabelBox>
         </s.MileageBox>
 
-        <div onClick={handleSearch}>
-          <RentButton>Search</RentButton>
-        </div>
-        <div onClick={clearFields}>
-          <RentButton>Clear all</RentButton>
-        </div>
+        <s.Button
+          type="submit"
+          onClick={handleSearch}
+          disabled={isDisabled}
+          aria-label="Search cars by filter"
+        >
+          Search
+        </s.Button>
+        <s.Button
+          type="button"
+          onClick={clearFields}
+          disabled={isDisabled}
+          aria-label="Reset filters"
+        >
+          Reset filters
+        </s.Button>
       </s.Container>
     </>
   );

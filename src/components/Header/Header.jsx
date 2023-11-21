@@ -1,10 +1,6 @@
 import * as s from './Header.styled';
 
-// import { ReactComponent as Logo } from '../../images/logo512.png';
-import mainLogo from '../../images/logo512.png';
-
-// import { ReactComponent as Mail } from '../../icons/MainPage/email.svg';
-// import { ReactComponent as Telephone } from '../../icons/MainPage/telephone.svg';
+import mainLogo from '../../images/logo.png';
 
 const Header = () => {
   return (
