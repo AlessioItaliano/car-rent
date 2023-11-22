@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react';
 
-import { getFilteredCars } from 'redux/filter/filterOperations';
+import {
+  getFilteredCars,
+  removeFilteredCars,
+} from 'redux/filter/filterOperations';
+// import { selectCars } from 'redux/cars/carsSelectors';
+// import { selectFilteredCar } from 'redux/filter/filterSelectors';
 
 import makes from 'makes.json';
 
 import { variables } from '../../stylesheet/variables';
 import * as s from './SearchBar.styled';
 import { useDispatch } from 'react-redux';
+// import { getFirstCarsPage } from 'redux/cars/carsOperations';
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -15,6 +21,8 @@ const SearchBar = () => {
   const [mileageMin, setMileageMin] = useState('');
   const [mileageMax, setMileageMax] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
+
+  // console.log(selectedBrand.value);
 
   const CarMakeList = makes.map(make => ({
     value: `${make}`,
@@ -41,13 +49,18 @@ const SearchBar = () => {
 
   const handleSearch = async e => {
     e.preventDefault();
+    const searchCars = {
+      make: selectedBrand.value,
+      rentalPrice: selectedPrice.value,
+    };
 
     const fetchData = async () => {
       try {
-        const response = await dispatch(
-          getFilteredCars(selectedBrand, selectedPrice, mileageMin, mileageMax)
-        );
+        const response = await dispatch(getFilteredCars(searchCars));
+        console.log(selectedBrand.value);
+        console.log(selectedPrice.value);
         console.log(response.payload);
+
         // Handle the response or dispatch actions based on the response here
       } catch (error) {
         // Handle errors if necessary
@@ -58,10 +71,14 @@ const SearchBar = () => {
   };
 
   const clearFields = () => {
+    // dispatch(getFirstCarsPage());
+    // dispatch(removeFilteredCars());
     setSelectedBrand(null);
     setSelectedPrice(null);
     setMileageMin('');
     setMileageMax('');
+    dispatch(removeFilteredCars());
+    // dispatch(getFirstCarsPage());
   };
 
   useEffect(() => {

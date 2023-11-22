@@ -6,17 +6,30 @@ axios.defaults.baseURL = `https://64c2ad55eb7fd5d6ebd0337b.mockapi.io`;
 
 export const getFilteredCars = createAsyncThunk(
   'filteredCars/getFilteredCars',
-  async ({ make, rentalPrice, mileage }, thunkAPI) => {
+  async ({ make, rentalPrice }, thunkAPI) => {
     try {
       const response = await axios.get('/adverts', {
         params: {
-          page: 1,
-          limit: 8,
           make,
           rentalPrice,
-          mileage,
         },
       });
+      console.log(make);
+      console.log(rentalPrice);
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const removeFilteredCars = createAsyncThunk(
+  'filteredCars/removeFilteredCars',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('/adverts');
+      console.log(response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

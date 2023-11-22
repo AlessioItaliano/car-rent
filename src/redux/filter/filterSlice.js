@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { getFilteredCars } from './filterOperations';
+import { getFilteredCars, removeFilteredCars } from './filterOperations';
 
 const initialState = {
   cars: [],
@@ -23,6 +23,19 @@ const filteredCarsSlice = createSlice({
         state.cars = action.payload;
       })
       .addCase(getFilteredCars.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+
+      .addCase(removeFilteredCars.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(removeFilteredCars.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.cars = [];
+      })
+      .addCase(removeFilteredCars.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
       });
