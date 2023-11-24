@@ -6,30 +6,38 @@ axios.defaults.baseURL = `https://64c2ad55eb7fd5d6ebd0337b.mockapi.io`;
 
 export const getFilteredCars = createAsyncThunk(
   'filteredCars/getFilteredCars',
-  async ({ make, rentalPrice }, thunkAPI) => {
+  async ({ make, rentalPrice, mileageMin, mileageMax }, thunkAPI) => {
     try {
-      // First request to filter by make
       const firstResponse = await axios.get('/adverts', {
         params: {
           make,
         },
       });
 
-      // Extract the filtered data based on make
-      const filteredByMake = firstResponse.data;
+      const filteredData = firstResponse.data;
 
-      // Now filter the data by rentalPrice
-      const filteredByRentalPrice = filteredByMake.filter(
-        car => car.rentalPrice === rentalPrice
-      );
+      let filteredList = filteredData;
+      if (rentalPrice !== undefined) {
+        filteredList = filteredData.filter(
+          car => car.rentalPrice === `$${rentalPrice}`
+        );
+      }
 
-      // mileage;
-      console.log(filteredByMake);
-      console.log(make);
-      console.log(rentalPrice);
-      console.log(filteredByRentalPrice);
+      if (mileageMin !== undefined || mileageMax !== undefined) {
+        filteredList = filteredList.filter(car => {
+          const mileage = parseFloat(car.mileage);
+          console.log(mileage);
+          return (
+            (mileageMin === 0 || mileage >= parseFloat(mileageMin)) &&
+            (mileageMax === 99999 || mileage <= parseFloat(mileageMax))
+          );
+        });
+      }
+      if (filteredList.length === 0) {
+        throw new Error('No cars found matching the criteria');
+      }
 
-      return filteredByRentalPrice;
+      return filteredList;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

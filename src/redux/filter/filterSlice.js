@@ -30,7 +30,7 @@ const filteredCarsSlice = createSlice({
       .addCase(removeFilteredCars.pending, state => {
         state.isLoading = true;
       })
-      .addCase(removeFilteredCars.fulfilled, (state, action) => {
+      .addCase(removeFilteredCars.fulfilled, state => {
         state.isLoading = false;
         state.error = null;
         state.cars = [];

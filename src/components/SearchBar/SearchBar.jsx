@@ -22,7 +22,11 @@ const SearchBar = () => {
   const [mileageMax, setMileageMax] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
 
-  // console.log(selectedBrand.value);
+  // console.log(selectedBrand);
+  // console.log(selectedPrice);
+
+  console.log(mileageMin);
+  console.log(mileageMax);
 
   const CarMakeList = makes.map(make => ({
     value: `${make}`,
@@ -45,30 +49,28 @@ const SearchBar = () => {
     return priceFunc();
   })();
 
-  const handleMileage = e => {};
+  const handleMileage = e => {
+    if (e.target.name === 'mileageMin') {
+      setMileageMin(e.target.value);
+    } else if (e.target.name === 'mileageMax') {
+      setMileageMax(e.target.value);
+    }
+  };
 
   const handleSearch = async e => {
     e.preventDefault();
     const searchCars = {
-      make: selectedBrand.value,
-      rentalPrice: `$${selectedPrice.value}`,
+      make: selectedBrand ? selectedBrand.value : undefined,
+      rentalPrice: selectedPrice ? selectedPrice.value : undefined,
+      mileageMin: mileageMin.split(',').join('') || 0,
+      mileageMax: mileageMax.split(',').join('') || 99999,
     };
-    // let searchCars = {};
-
-    // if (selectedBrand.value !== null) {
-    //   searchCars = {
-    //     make: selectedBrand.value,
-    //     rentalPrice: selectedPrice.value,
-    //   };
-    // } else {
-    //   searchCars = {
-    //     rentalPrice: selectedPrice.value,
-    //   };
-    // }
 
     const fetchData = async () => {
       try {
         const response = await dispatch(getFilteredCars(searchCars));
+        if (response.payload.length === 0) {
+        }
         // console.log(selectedBrand.value);
         // console.log(selectedPrice.value);
         console.log(response.payload);
@@ -83,14 +85,12 @@ const SearchBar = () => {
   };
 
   const clearFields = () => {
-    // dispatch(getFirstCarsPage());
-    // dispatch(removeFilteredCars());
-    setSelectedBrand(null);
-    setSelectedPrice(null);
+    setSelectedBrand('');
+    setSelectedPrice('');
     setMileageMin('');
     setMileageMax('');
+
     dispatch(removeFilteredCars());
-    // dispatch(getFirstCarsPage());
   };
 
   useEffect(() => {
@@ -187,6 +187,7 @@ const SearchBar = () => {
             <s.SecondaryLabelBox>
               <s.LabelInside>From</s.LabelInside>
               <s.InputFieldMin
+                name="mileageMin"
                 minLength="3"
                 maxLength="6"
                 format="##,###"
@@ -199,6 +200,7 @@ const SearchBar = () => {
             <s.SecondaryLabelBox>
               <s.LabelInside>To</s.LabelInside>
               <s.InputFieldMax
+                name="mileageMax"
                 minLength="3"
                 maxLength="6"
                 format="##,###"

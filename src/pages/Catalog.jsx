@@ -8,7 +8,11 @@ import {
   selectIsLoading,
 } from 'redux/cars/carsSelectors';
 
-import { selectFilteredCars } from 'redux/filter/filterSelectors';
+import {
+  selectFilteredCars,
+  selectFilterLoading,
+  selectFilterError,
+} from 'redux/filter/filterSelectors';
 
 import Loader from 'components/Loader';
 import CarList from 'components/CarList';
@@ -20,8 +24,10 @@ const Catalog = () => {
   const dispatch = useDispatch();
   const cars = useSelector(selectCars);
   const filteredCars = useSelector(selectFilteredCars);
-  const error = useSelector(selectError);
-  const isLoading = useSelector(selectIsLoading);
+  const CarsError = useSelector(selectError);
+  const CarsLoading = useSelector(selectIsLoading);
+  const FilterError = useSelector(selectFilterError);
+  const FilterLoading = useSelector(selectFilterLoading);
 
   const [page, setPage] = useState(1);
   const [showButton, setShowButton] = useState(false);
@@ -46,7 +52,7 @@ const Catalog = () => {
     };
 
     fetchData();
-  }, [dispatch, page]);
+  }, [dispatch, page, FilterLoading]);
 
   const onLoadMore = () => {
     setPage(page + 1);
@@ -57,7 +63,7 @@ const Catalog = () => {
       <Section>
         <SearchBar />
       </Section>
-      {isLoading && !error ? (
+      {CarsLoading && !CarsError && !FilterError && FilterLoading ? (
         <Loader />
       ) : (
         <Section>
