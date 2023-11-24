@@ -8,16 +8,28 @@ export const getFilteredCars = createAsyncThunk(
   'filteredCars/getFilteredCars',
   async ({ make, rentalPrice }, thunkAPI) => {
     try {
-      const response = await axios.get('/adverts', {
+      // First request to filter by make
+      const firstResponse = await axios.get('/adverts', {
         params: {
           make,
-          rentalPrice,
         },
       });
+
+      // Extract the filtered data based on make
+      const filteredByMake = firstResponse.data;
+
+      // Now filter the data by rentalPrice
+      const filteredByRentalPrice = filteredByMake.filter(
+        car => car.rentalPrice === rentalPrice
+      );
+
+      // mileage;
+      console.log(filteredByMake);
       console.log(make);
       console.log(rentalPrice);
-      console.log(response.data);
-      return response.data;
+      console.log(filteredByRentalPrice);
+
+      return filteredByRentalPrice;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

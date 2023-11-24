@@ -16,8 +16,8 @@ import { useDispatch } from 'react-redux';
 
 const SearchBar = () => {
   const dispatch = useDispatch();
-  const [selectedBrand, setSelectedBrand] = useState(null);
-  const [selectedPrice, setSelectedPrice] = useState(null);
+  const [selectedBrand, setSelectedBrand] = useState('');
+  const [selectedPrice, setSelectedPrice] = useState('');
   const [mileageMin, setMileageMin] = useState('');
   const [mileageMax, setMileageMax] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
@@ -51,14 +51,26 @@ const SearchBar = () => {
     e.preventDefault();
     const searchCars = {
       make: selectedBrand.value,
-      rentalPrice: selectedPrice.value,
+      rentalPrice: `$${selectedPrice.value}`,
     };
+    // let searchCars = {};
+
+    // if (selectedBrand.value !== null) {
+    //   searchCars = {
+    //     make: selectedBrand.value,
+    //     rentalPrice: selectedPrice.value,
+    //   };
+    // } else {
+    //   searchCars = {
+    //     rentalPrice: selectedPrice.value,
+    //   };
+    // }
 
     const fetchData = async () => {
       try {
         const response = await dispatch(getFilteredCars(searchCars));
-        console.log(selectedBrand.value);
-        console.log(selectedPrice.value);
+        // console.log(selectedBrand.value);
+        // console.log(selectedPrice.value);
         console.log(response.payload);
 
         // Handle the response or dispatch actions based on the response here

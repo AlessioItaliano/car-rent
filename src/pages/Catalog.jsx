@@ -26,7 +26,7 @@ const Catalog = () => {
   const [page, setPage] = useState(1);
   const [showButton, setShowButton] = useState(false);
 
-  console.log(filteredCars);
+  // console.log(filteredCars);
 
   useEffect(() => {
     const fetchData = async () => {
