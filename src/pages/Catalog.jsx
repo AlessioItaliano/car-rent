@@ -22,6 +22,7 @@ import LoadMoreBtn from 'components/LoadMoreBtn';
 
 const Catalog = () => {
   const dispatch = useDispatch();
+
   const cars = useSelector(selectCars);
   const filteredCars = useSelector(selectFilteredCars);
   const CarsError = useSelector(selectError);
@@ -31,8 +32,6 @@ const Catalog = () => {
 
   const [page, setPage] = useState(1);
   const [showButton, setShowButton] = useState(false);
-
-  // console.log(filteredCars);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,10 +48,14 @@ const Catalog = () => {
           setShowButton(false);
         }
       }
+
+      if (filteredCars.length !== 0) {
+        setShowButton(false);
+      }
     };
 
     fetchData();
-  }, [dispatch, page, FilterLoading]);
+  }, [dispatch, page, filteredCars]);
 
   const onLoadMore = () => {
     setPage(page + 1);

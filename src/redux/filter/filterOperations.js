@@ -26,17 +26,13 @@ export const getFilteredCars = createAsyncThunk(
       if (mileageMin !== undefined || mileageMax !== undefined) {
         filteredList = filteredList.filter(car => {
           const mileage = parseFloat(car.mileage);
-          console.log(mileage);
+
           return (
             (mileageMin === 0 || mileage >= parseFloat(mileageMin)) &&
             (mileageMax === 99999 || mileage <= parseFloat(mileageMax))
           );
         });
       }
-      if (filteredList.length === 0) {
-        throw new Error('No cars found matching the criteria');
-      }
-
       return filteredList;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

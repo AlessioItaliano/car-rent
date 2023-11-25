@@ -1,32 +1,40 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import {
   getFilteredCars,
   removeFilteredCars,
 } from 'redux/filter/filterOperations';
-// import { selectCars } from 'redux/cars/carsSelectors';
-// import { selectFilteredCar } from 'redux/filter/filterSelectors';
+
+import SelectForm from 'components/Select/Select';
+
+import { Report } from 'notiflix/build/notiflix-report-aio';
+
+import * as s from './SearchBar.styled';
 
 import makes from 'makes.json';
 
-import { variables } from '../../stylesheet/variables';
-import * as s from './SearchBar.styled';
-import { useDispatch } from 'react-redux';
-// import { getFirstCarsPage } from 'redux/cars/carsOperations';
-
 const SearchBar = () => {
   const dispatch = useDispatch();
+
   const [selectedBrand, setSelectedBrand] = useState('');
   const [selectedPrice, setSelectedPrice] = useState('');
   const [mileageMin, setMileageMin] = useState('');
   const [mileageMax, setMileageMax] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
 
-  // console.log(selectedBrand);
-  // console.log(selectedPrice);
-
-  console.log(mileageMin);
-  console.log(mileageMax);
+  useEffect(() => {
+    if (
+      selectedBrand !== '' ||
+      selectedPrice !== '' ||
+      mileageMin !== '' ||
+      mileageMax !== ''
+    ) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [selectedBrand, selectedPrice, mileageMin, mileageMax]);
 
   const CarMakeList = makes.map(make => ({
     value: `${make}`,
@@ -69,16 +77,15 @@ const SearchBar = () => {
     const fetchData = async () => {
       try {
         const response = await dispatch(getFilteredCars(searchCars));
-        if (response.payload.length === 0) {
-        }
-        // console.log(selectedBrand.value);
-        // console.log(selectedPrice.value);
-        console.log(response.payload);
 
-        // Handle the response or dispatch actions based on the response here
-      } catch (error) {
-        // Handle errors if necessary
-      }
+        if (response.payload.length === 0) {
+          Report.failure(
+            'Error',
+            '"Sorry, no cars were found based on the given parameters."',
+            'Try again!'
+          );
+        }
+      } catch (error) {}
     };
 
     fetchData();
@@ -95,8 +102,8 @@ const SearchBar = () => {
 
   useEffect(() => {
     if (
-      selectedBrand !== null ||
-      selectedPrice !== null ||
+      selectedBrand !== '' ||
+      selectedPrice !== '' ||
       mileageMin !== '' ||
       mileageMax !== ''
     ) {
@@ -110,74 +117,22 @@ const SearchBar = () => {
     <>
       <s.Container>
         <s.CarBrandFilterBox>
-          <s.Label htmlFor="carBrand">Car brand</s.Label>
-          <s.SelectForm
-            id="carBrand"
-            name="carBrand"
-            isClearable={true}
-            isSearchable={true}
-            options={CarMakeList}
-            value={selectedBrand}
-            placeholder={'Enter the text'}
-            onChange={setSelectedBrand}
-            styles={{
-              control: provided => ({
-                ...provided,
-                backgroundColor: variables.colors.bgInput,
-                color: variables.colors.primary,
-                borderRadius: '12px',
-                height: '48px',
-                border: 'none',
-              }),
-              indicatorSeparator: () => ({ display: 'none' }),
-              dropdownIndicator: (base, state) => ({
-                ...base,
-                transition: 'transform 0.5s',
-                transform: state.selectProps.menuIsOpen
-                  ? 'rotate(180deg)'
-                  : 'none',
-              }),
-              placeholder: base => ({
-                ...base,
-                color: variables.colors.primary,
-              }),
-            }}
+          <SelectForm
+            title={'carBrand'}
+            placeholderText={'Enter the text'}
+            selectedBrand={selectedBrand}
+            CarMakeList={CarMakeList}
+            setSelectedBrand={setSelectedBrand}
           />
         </s.CarBrandFilterBox>
 
         <s.PriceFilterBox>
-          <s.Label htmlFor="price">Price/ 1 hour</s.Label>
-          <s.SelectForm
-            id="price"
-            name="price"
-            isClearable={true}
-            isSearchable={true}
-            options={CarPriceList}
-            value={selectedPrice}
-            placeholder={'To $'}
-            onChange={setSelectedPrice}
-            styles={{
-              control: provided => ({
-                ...provided,
-                backgroundColor: variables.colors.bgInput,
-                color: variables.colors.primary,
-                borderRadius: '12px',
-                height: '48px',
-                border: 'none',
-              }),
-              indicatorSeparator: () => ({ display: 'none' }),
-              dropdownIndicator: (base, state) => ({
-                ...base,
-                transition: 'transform 0.5s',
-                transform: state.selectProps.menuIsOpen
-                  ? 'rotate(180deg)'
-                  : 'none',
-              }),
-              placeholder: base => ({
-                ...base,
-                color: variables.colors.primary,
-              }),
-            }}
+          <SelectForm
+            title={'price'}
+            placeholderText={'To $'}
+            selectedBrand={selectedPrice}
+            CarMakeList={CarPriceList}
+            setSelectedBrand={setSelectedPrice}
           />
         </s.PriceFilterBox>
 

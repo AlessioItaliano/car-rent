@@ -9,7 +9,7 @@ const EmptyPage = () => {
       <s.Title>
         Oops, you haven't selected any cars yet! Hurry up and choose!
       </s.Title>
-      <s.StyledLink to="/catalog">
+      <s.StyledLink to="/catalog" aria-label="Catalog page">
         <Button> Catalog </Button>
       </s.StyledLink>
       <GiPoliceCar size="300px" />
