@@ -7,7 +7,7 @@ import { ReactComponent as Telephone } from '../../icons/MainPage/telephone.svg'
 const Footer = () => {
   return (
     <s.Footer>
-      <s.Title>Contacts</s.Title>
+      <s.Title>Contact us</s.Title>
       <s.Address>
         <s.AddressItem
           href="https://maps.app.goo.gl/Nn91EEDCjRWRciRZ9"

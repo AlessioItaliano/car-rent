@@ -21,10 +21,10 @@ export const Backdrop = styled.div`
 export const ModalField = styled.div`
   position: relative;
   width: 541px;
-  height: 752px;
+  height: auto;
   padding: 40px;
 
-  box-sizing: border-box;
+  // box-sizing: border-box;
   border-radius: 24px;
 
   background-color: ${variables.colors.tertiary};

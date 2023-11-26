@@ -8,7 +8,7 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  padding: 20px 50px 20px 50px;
+  padding: 10px 20px;
 
   margin-right: auto;
   margin-left: auto;
@@ -19,26 +19,41 @@ export const Header = styled.header`
     ${variables.colors.bgMainPrimaryGrad},
     ${variables.colors.bgMainSecondaryGrad}
   );
+
+  @media screen and (min-width: 768px) {
+    // width: 34px;
+    // height: 34px;
+
+    padding: 20px 50px;
+  }
 `;
 
 export const Logo = styled(NavLink)`
   display: flex;
-  width: 70px;
+  width: 50px;
   height: auto;
   gap: 5px;
 
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    width: 70px;
+  }
 `;
 
 export const Title = styled.h2`
-  font-size: 50px;
+  font-size: 35px;
   font-weight: 700;
 
   color: ${variables.colors.tertiary};
+
+  @media screen and (min-width: 768px) {
+    font-size: 50px;
+  }
 `;
+
 export const Nav = styled.nav`
   display: flex;
-  //   flex-direction: column;
   gap: 50px;
 `;
 
@@ -67,5 +82,9 @@ export const StyledLink = styled(NavLink)`
   &.active {
     color: ${variables.colors.primary};
     background-color: ${variables.colors.tertiary};
+  }
+
+  @media screen and (min-width: 768px) {
+    // font-size: 50px;
   }
 `;
