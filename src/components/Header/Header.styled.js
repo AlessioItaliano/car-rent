@@ -8,7 +8,7 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  padding: 10px 20px;
+  padding: 20px;
 
   margin-right: auto;
   margin-left: auto;
@@ -20,7 +20,7 @@ export const Header = styled.header`
     ${variables.colors.bgMainSecondaryGrad}
   );
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
     // width: 34px;
     // height: 34px;
 
@@ -36,7 +36,7 @@ export const Logo = styled(NavLink)`
 
   cursor: pointer;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
     width: 70px;
   }
 `;
@@ -47,14 +47,22 @@ export const Title = styled.h2`
 
   color: ${variables.colors.tertiary};
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
     font-size: 50px;
   }
 `;
 
 export const Nav = styled.nav`
   display: flex;
-  gap: 50px;
+  gap: 20px;
+
+  //   @media screen and (min-width:  ${variables.breakpoints.tablet}) {
+  //     gap: 40px;
+  //   }
+
+  @media screen and (min-width: ${variables.breakpoints.desktop}) {
+    gap: 50px;
+  }
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -62,7 +70,7 @@ export const StyledLink = styled(NavLink)`
   align-items: center;
   justify-content: center;
 
-  padding: 12px 50px;
+  //   padding: 12px 50px;
   border-radius: 12px;
 
   font-size: 16px;
@@ -84,7 +92,22 @@ export const StyledLink = styled(NavLink)`
     background-color: ${variables.colors.tertiary};
   }
 
-  @media screen and (min-width: 768px) {
-    // font-size: 50px;
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
+    padding: 10px 20px;
   }
+
+  @media screen and (min-width: ${variables.breakpoints.desktop}) {
+    padding: 12px 50px;
+  }
+`;
+
+export const BurgerMenuBtn = styled.button`
+  width: 60px;
+  height: auto;
+
+  background-color: inherit;
+  border: none;
+  color: ${variables.colors.tertiary};
+
+  cursor: pointer;
 `;

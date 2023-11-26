@@ -34,4 +34,6 @@ export const variables = {
     fontsBody: 'Manrope',
     additionalModal: 'Montserrat',
   },
+
+  breakpoints: { mobile: '375px', tablet: '768px', desktop: '1240px' },
 };

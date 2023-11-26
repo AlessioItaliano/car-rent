@@ -18,7 +18,7 @@ export const Footer = styled.footer`
     ${variables.colors.bgMainPrimaryGrad}
   );
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
     padding: 50px;
   }
 `;
@@ -31,7 +31,7 @@ export const Title = styled.h2`
 
   color: ${variables.colors.tertiary};
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
     font-size: 40px;
   }
 `;
@@ -44,13 +44,13 @@ export const Address = styled.address`
 
   margin-bottom: 50px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
     flex-direction: row;
     justify-content: center;
     gap: 30px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${variables.breakpoints.desktop}) {
     gap: 80px;
   }
 `;
@@ -66,27 +66,25 @@ export const AddressItem = styled.a`
   line-height: 1.71;
   text-decoration: none;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
     font-size: 16px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${variables.breakpoints.desktop}) {
     font-size: 18px;
   }
 `;
 
 export const Icon = styled.div`
   width: 18px;
-  height: 18px;
+  height: auto;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
     width: 22px;
-    height: 22px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${variables.breakpoints.desktop}) {
     width: 25px;
-    height: 25px;
   }
 `;
 
@@ -95,11 +93,11 @@ export const CopyRight = styled.p`
   font-size: 10px;
   line-height: 1.71;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
     font-size: 12px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${variables.breakpoints.desktop}) {
     font-size: 14px;
   }
 `;
