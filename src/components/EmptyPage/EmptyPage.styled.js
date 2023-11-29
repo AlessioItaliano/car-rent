@@ -19,6 +19,7 @@ export const Title = styled.h2`
 
   font-size: 36px;
   font-weight: 500;
+  text-align: center;
 
   color: ${variables.colors.black};
 `;

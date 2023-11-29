@@ -116,74 +116,82 @@ const SearchBar = () => {
   return (
     <>
       <s.Container>
-        <s.CarBrandFilterBox>
-          <SelectForm
-            title={'carBrand'}
-            placeholderText={'Enter the text'}
-            selectedBrand={selectedBrand}
-            CarMakeList={CarMakeList}
-            setSelectedBrand={setSelectedBrand}
-          />
-        </s.CarBrandFilterBox>
-
-        <s.PriceFilterBox>
-          <SelectForm
-            title={'price'}
-            placeholderText={'To $'}
-            selectedBrand={selectedPrice}
-            CarMakeList={CarPriceList}
-            setSelectedBrand={setSelectedPrice}
-          />
-        </s.PriceFilterBox>
-
-        <s.MileageBox>
-          <s.Label htmlFor="mileage">Сar mileage / km</s.Label>
-          <s.MainLabelBox>
-            <s.SecondaryLabelBox>
-              <s.LabelInside>From</s.LabelInside>
-              <s.InputFieldMin
-                name="mileageMin"
-                minLength="3"
-                maxLength="6"
-                format="##,###"
-                decimalScale={3}
-                thousandSeparator={true}
-                value={mileageMin}
-                onChange={handleMileage}
+        <s.Filter>
+          <s.FilterBox>
+            <s.CarBrandFilterBox>
+              <SelectForm
+                title={'carBrand'}
+                placeholderText={'Enter the text'}
+                selectedBrand={selectedBrand}
+                CarMakeList={CarMakeList}
+                setSelectedBrand={setSelectedBrand}
               />
-            </s.SecondaryLabelBox>
-            <s.SecondaryLabelBox>
-              <s.LabelInside>To</s.LabelInside>
-              <s.InputFieldMax
-                name="mileageMax"
-                minLength="3"
-                maxLength="6"
-                format="##,###"
-                decimalScale={3}
-                thousandSeparator={true}
-                value={mileageMax}
-                onChange={handleMileage}
-              />
-            </s.SecondaryLabelBox>
-          </s.MainLabelBox>
-        </s.MileageBox>
+            </s.CarBrandFilterBox>
 
-        <s.Button
-          type="submit"
-          onClick={handleSearch}
-          disabled={isDisabled}
-          aria-label="Search cars by filter"
-        >
-          Search
-        </s.Button>
-        <s.Button
-          type="button"
-          onClick={clearFields}
-          disabled={isDisabled}
-          aria-label="Reset filters"
-        >
-          Reset filters
-        </s.Button>
+            <s.PriceFilterBox>
+              <SelectForm
+                title={'price'}
+                placeholderText={'To $'}
+                selectedBrand={selectedPrice}
+                CarMakeList={CarPriceList}
+                setSelectedBrand={setSelectedPrice}
+              />
+            </s.PriceFilterBox>
+          </s.FilterBox>
+
+          <s.MileageBox>
+            <s.Mileage>
+              <s.Label htmlFor="mileage">Сar mileage / km</s.Label>
+              <s.MainLabelBox>
+                <s.SecondaryLabelBox>
+                  <s.LabelInside>From</s.LabelInside>
+                  <s.InputFieldMin
+                    name="mileageMin"
+                    minLength="3"
+                    maxLength="6"
+                    format="##,###"
+                    decimalScale={3}
+                    thousandSeparator={true}
+                    value={mileageMin}
+                    onChange={handleMileage}
+                  />
+                </s.SecondaryLabelBox>
+                <s.SecondaryLabelBox>
+                  <s.LabelInside>To</s.LabelInside>
+                  <s.InputFieldMax
+                    name="mileageMax"
+                    minLength="3"
+                    maxLength="6"
+                    format="##,###"
+                    decimalScale={3}
+                    thousandSeparator={true}
+                    value={mileageMax}
+                    onChange={handleMileage}
+                  />
+                </s.SecondaryLabelBox>
+              </s.MainLabelBox>
+            </s.Mileage>
+          </s.MileageBox>
+        </s.Filter>
+
+        <s.ButtonBox>
+          <s.Button
+            type="submit"
+            onClick={handleSearch}
+            disabled={isDisabled}
+            aria-label="Search cars by filter"
+          >
+            Search
+          </s.Button>
+          <s.Button
+            type="button"
+            onClick={clearFields}
+            disabled={isDisabled}
+            aria-label="Reset filters"
+          >
+            Reset filters
+          </s.Button>
+        </s.ButtonBox>
       </s.Container>
     </>
   );

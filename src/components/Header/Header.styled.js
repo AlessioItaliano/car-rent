@@ -12,7 +12,8 @@ export const Header = styled.header`
 
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 60px;
+
+  margin-bottom: 20px;
 
   background: linear-gradient(
     to top,
@@ -21,10 +22,8 @@ export const Header = styled.header`
   );
 
   @media screen and (min-width: ${variables.breakpoints.tablet}) {
-    // width: 34px;
-    // height: 34px;
-
     padding: 20px 50px;
+    margin-bottom: 60px;
   }
 `;
 
@@ -56,10 +55,6 @@ export const Nav = styled.nav`
   display: flex;
   gap: 20px;
 
-  //   @media screen and (min-width:  ${variables.breakpoints.tablet}) {
-  //     gap: 40px;
-  //   }
-
   @media screen and (min-width: ${variables.breakpoints.desktop}) {
     gap: 50px;
   }
@@ -70,7 +65,6 @@ export const StyledLink = styled(NavLink)`
   align-items: center;
   justify-content: center;
 
-  //   padding: 12px 50px;
   border-radius: 12px;
 
   font-size: 16px;

@@ -6,10 +6,61 @@ import { variables } from '../../stylesheet/variables';
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: end;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: end;
   gap: 18px;
+
+  // @media screen and (min-width: ${variables.breakpoints.tablet}) {
+  //   flex-direction: row;
+  //   justify-content: center;
+  //   align-items: end;
+  //   gap: 18px;
+  // }
+
+  @media screen and (min-width: ${variables.breakpoints.desktop}) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    gap: 18px;
+  }
 `;
+
+export const Filter = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    gap: 28px;
+  }
+
+  @media screen and (min-width: ${variables.breakpoints.desktop}) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    gap: 18px;
+  }
+`;
+
+export const FilterBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
+    justify-content: start;
+    width: auto;
+  }
+`;
+
 export const CarBrandFilterBox = styled.div`
   display: block;
   width: 224px;
@@ -28,8 +79,20 @@ export const Label = styled.label`
 `;
 
 export const MileageBox = styled.div`
-  width: 321px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
+
+export const Mileage = styled.div`
+  min-width: 280px;
+  max-width: 100%;
+
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
+    width: 321px;
+  }
+`;
+
 export const MainLabelBox = styled.div`
   display: flex;
 `;
@@ -51,7 +114,7 @@ export const LabelInside = styled.span`
 `;
 
 export const InputFieldMin = styled(NumericFormat)`
-  width: 160px;
+  width: 100%;
   height: 48px;
 
   padding-left: 70px;
@@ -67,10 +130,14 @@ export const InputFieldMin = styled(NumericFormat)`
   background-color: ${variables.colors.bgInput};
 
   color: ${variables.colors.primary};
+
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
+    width: 160px;
+  }
 `;
 
 export const InputFieldMax = styled(NumericFormat)`
-  width: 160px;
+  width: 100%;
   height: 48px;
 
   padding-left: 49px;
@@ -85,6 +152,25 @@ export const InputFieldMax = styled(NumericFormat)`
   background-color: ${variables.colors.bgInput};
 
   color: ${variables.colors.primary};
+
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
+    width: 160px;
+  }
+`;
+
+export const ButtonBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+  }
 `;
 
 export const Button = styled.button`
@@ -93,6 +179,7 @@ export const Button = styled.button`
   align-items: center;
 
   padding: 12px 50px;
+  max-width: 500px;
 
   font-size: 14px;
   font-weight: 600;

@@ -6,19 +6,19 @@ import * as s from './Header.styled';
 
 const Header = () => {
   const [shownModal, setShowModal] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isBurgerMenu, setIsBurgerMenu] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+    const autoResize = () => {
+      setIsBurgerMenu(window.innerWidth <= 768);
     };
 
-    handleResize();
+    autoResize();
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', autoResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', autoResize);
     };
   }, []);
 
@@ -33,13 +33,13 @@ const Header = () => {
         <s.Title>Rental</s.Title>
       </s.Logo>
 
-      {isMobile && (
+      {isBurgerMenu && (
         <s.BurgerMenuBtn type="button" onClick={onModal}>
           <GiHamburgerMenu size="100%" />
         </s.BurgerMenuBtn>
       )}
-      {shownModal && isMobile && <BurgerMenu onClose={onModal} />}
-      {!isMobile && (
+      {shownModal && isBurgerMenu && <BurgerMenu onClose={onModal} />}
+      {!isBurgerMenu && (
         <s.Nav>
           <s.StyledLink to="/" aria-label="Home page">
             Home
