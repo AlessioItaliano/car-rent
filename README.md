@@ -1,15 +1,40 @@
-# Car RENTAL
-Gretings and welcome on our best rent website!
+# RENTAL
 
-This website is built on the React framework, providing users with a simple and convenient way to rent cars. 
-You can see three pages.
+Gretings and welcome on our best rent cars website!
 
-- Home: Provides brief information about our service and allows users to browse available cars.
-- Catalog: The car catalog page where users can apply filters based on the car brand, maximum rental price, and mileage. Here, you'll find detailed information about available cars, their specifications, and costs.
-- Favorites: On this page, users can add cars to their favorites for later consideration and booking.
+![Image alt](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
 
-Website Features:
-Add to Favorites: Users can add cars they're interested in to their favorites, allowing them to make a more considered decision and place an order later.
-Phone Orders: We provide an easy way to contact us directly from our website to place orders over the phone. We are always ready to assist and advise you.
+# About Website
 
-If you have any questions, concerns, or suggestions, feel free to get in touch with us. We're always here to help!
+Our website is built on the React framework for users who are looking to rent a
+car. RENTAL is very simple, responsive, and fast. Every user will find exactly
+what they are looking for! After all, our motto is 'A car in just one click!'.
+
+The site consists of a home page, a catalog page and a favorites page.
+
+## Home page
+
+Our website provides concise information about our service and enables users to
+explore the available cars
+![Image alt](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
+
+## Catalog page
+
+The page within the car catalog allows users to filter cars by brand, maximum
+rental price, and mileage. It provides comprehensive details about available
+cars, including their specifications and associated costs.
+![Image alt](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
+
+## Modal window
+
+The modal window contains all the information about the selected car, along with
+a button to order the rental of the chosen vehicle.
+![Image alt](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
+
+## Favorites page
+
+The page enables the user to view all selected and favorited cars.
+![Image alt](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
+
+If you have any questions, concerns, or suggestions, feel free to get in touch
+with us. We're always here to help!
