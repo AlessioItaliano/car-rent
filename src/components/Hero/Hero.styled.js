@@ -28,11 +28,11 @@ export const Hero = styled.div`
   }
 
   @media screen and (min-width: ${variables.breakpoints.tablet}) {
-    padding: 150px 10px 100px 100px;
+    padding: 150px 100px 100px 100px;
   }
 
   @media screen and (min-width: ${variables.breakpoints.desktop}) {
-    padding: 200px;
+    padding: 200px 200px 100px 200px;
 `;
 
 export const HeroContainer = styled.div`
