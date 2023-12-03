@@ -42,6 +42,4 @@ const filteredCarsSlice = createSlice({
   },
 });
 
-// export const { setFilterContacts } = filtersSlice.actions;
-
 export const filteredCarsReducer = filteredCarsSlice.reducer;

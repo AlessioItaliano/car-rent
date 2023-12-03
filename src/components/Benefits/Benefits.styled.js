@@ -24,13 +24,6 @@ export const Container = styled.div`
   @media screen and (min-width: ${variables.breakpoints.tablet}) {
     padding: 50px;
   }
-
-  @media screen and (min-width: ${variables.breakpoints.desktop}) {
-    // flex-direction: row;
-    // justify-content: center;
-    // align-items: end;
-    // gap: 18px;
-  }
 `;
 
 export const Title = styled.h2`
@@ -53,17 +46,8 @@ export const List = styled.ul`
   flex-wrap: wrap;
 
   gap: 30px;
-  // width: 1000px;
 
   margin-bottom: 100px;
-
-  // @media screen and (min-width: ${variables.breakpoints.tablet}) {
-  //   flex-basis: calc((100% - 40px) / 2);
-  // }
-
-  // @media screen and (min-width: ${variables.breakpoints.desktop}) {
-  //   flex-basis: calc((100% - 40px) / 4);
-  }
 `;
 
 export const Item = styled.li`

@@ -6,7 +6,6 @@ import { variables } from '../../stylesheet/variables';
 
 export const ImgBox = styled.div`
   max-width: 100%;
-  // height: 248px;
 
   margin-bottom: 10px;
 
@@ -28,11 +27,6 @@ export const ImgBox = styled.div`
     width: 461px;
     height: 248px;
   }
-
-  // @media screen and (min-width: ${variables.breakpoints.desktop}) {
-  //   padding: 40px;
-  //   width: 541px;
-  // }
 `;
 
 export const Foto = styled.img`

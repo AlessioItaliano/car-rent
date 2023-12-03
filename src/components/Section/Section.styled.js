@@ -14,11 +14,6 @@ export const Container = styled.div`
   margin-left: auto;
  }
 
-  // @media screen and (max-width: ${variables.breakpoints.tablet}) {
-  // // width: ${variables.breakpoints.tablet}}
-  //   // padding: 10px 20px;
-  // }
-
   @media screen and (min-width: ${variables.breakpoints.desktop}) {
     width: ${variables.breakpoints.desktop}
     padding-left: 29px;

@@ -7,22 +7,12 @@ import { variables } from '../../stylesheet/variables';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  // justify-content: center;
-  // align-items: end;
   gap: 18px;
-
-  // @media screen and (min-width: ${variables.breakpoints.tablet}) {
-  //   flex-direction: row;
-  //   justify-content: center;
-  //   align-items: end;
-  //   gap: 18px;
-  // }
 
   @media screen and (min-width: ${variables.breakpoints.desktop}) {
     flex-direction: row;
     justify-content: center;
     align-items: end;
-    gap: 18px;
   }
 `;
 
@@ -35,15 +25,11 @@ export const Filter = styled.div`
 
   @media screen and (min-width: ${variables.breakpoints.tablet}) {
     flex-direction: row;
-    justify-content: center;
     align-items: end;
     gap: 28px;
   }
 
   @media screen and (min-width: ${variables.breakpoints.desktop}) {
-    flex-direction: row;
-    justify-content: center;
-    align-items: end;
     gap: 18px;
   }
 `;

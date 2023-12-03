@@ -8,7 +8,6 @@ import { variables } from '../../stylesheet/variables';
 export const Hero = styled.div`
   display: flex;
   flex-direction: column;
-  // align-items: center;
   justify-content: space-between;
 
   height: 70vh;
@@ -41,12 +40,6 @@ export const HeroContainer = styled.div`
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
-
-  // width: 1000px;
-
-  // @media screen and (min-width: ${variables.breakpoints.tablet}) {
-  //   text-align: start;
-  // }
 `;
 
 export const Title = styled.h1`
