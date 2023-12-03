@@ -2,7 +2,7 @@
 
 Gretings and welcome on our best rent cars website!
 
-![RENTAL](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
+![RENTAL](https://github.com/AlessioItaliano/car-rent/blob/main/public/readme/Rental.png)
 
 # About Website
 
@@ -16,25 +16,42 @@ The site consists of a home page, a catalog page and a favorites page.
 
 Our website provides concise information about our service and enables users to
 explore the available cars
-![HomePage](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
+![HomePage](https://github.com/AlessioItaliano/car-rent/blob/main/public/readme/HomePage.png)
 
 ## Catalog page
 
 The page within the car catalog allows users to filter cars by brand, maximum
 rental price, and mileage. It provides comprehensive details about available
 cars, including their specifications and associated costs.
-![CatalogPage](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
+![CatalogPage](https://github.com/AlessioItaliano/car-rent/blob/main/public/readme/CatalogPage.png)
 
 ## Modal window
 
 The modal window contains all the information about the selected car, along with
 a button to order the rental of the chosen vehicle.
-![ModalWindow](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
+![ModalWindow](https://github.com/AlessioItaliano/car-rent/blob/main/public/readme/Modal.png)
 
 ## Favorites page
 
 The page enables the user to view all selected and favorited cars.
-![FavoritesPage](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
+![FavoritesPage](https://github.com/AlessioItaliano/car-rent/blob/main/public/readme/FavoritePage.png)
+
+# How to Run the Project
+
+Simply type in the [link](https://alessioitaliano.github.io/car-rent/), and let
+the magic unfold
+
+# Used technologies
+
+HTML5 CSS JavaScript React Redux Axios Emotion Styled
+
+# Support
 
 If you have any questions, concerns, or suggestions, feel free to get in touch
 with us. We're always here to help!
+
+# About the Author
+
+This website was created by Vasyl Lepish Github LinkedIn
+[Github](https://github.com/AlessioItaliano)
+[LinkedIn](https://www.linkedin.com/in/vasyl-lepish/)
