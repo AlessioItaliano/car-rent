@@ -51,7 +51,7 @@ the magic unfold
 
 # Support
 
-If you have any questions, concerns, or suggestions, feel free to get in touch
+If you have any questions, concerns or suggestions, feel free to get in touch
 with us. We're always here to help!
 
 # About the Author
