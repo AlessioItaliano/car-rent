@@ -5,20 +5,6 @@ import { ReactComponent as CloseIconBtn } from '../../icons/Catalog/x-close.svg'
 
 import { variables } from '../../stylesheet/variables';
 
-// export const Backdrop = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-
-//   position: fixed;
-//   top: 0;
-//   right: 0;
-//   width: 100vw;
-//   height: 100vh;
-
-//   background-color: ${variables.colors.secondary};
-// `;
-
 export const Field = styled.div`
   position: absolute;
 

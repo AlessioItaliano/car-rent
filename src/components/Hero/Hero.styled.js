@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
-import imageX1 from '../../images/hero-desktop-x1.jpeg';
-import imageX2 from '../../images/hero-desktop-x2.jpeg';
+import imgDeskttopX1 from '../../images/hero-desktop-x1.jpeg';
+import imgDeskttopX2 from '../../images/hero-desktop-x2.jpeg';
 
 import { variables } from '../../stylesheet/variables';
 
 export const Hero = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
   justify-content: space-between;
 
   height: 70vh;
-  padding: 200px 100px 100px 100px;
+  padding: 150px 50px 100px 50px;
   margin: 0 auto 0 auto;
 
   background-repeat: no-repeat;
@@ -20,13 +20,20 @@ export const Hero = styled.div`
   background-position: center;
 
   background-color: ${variables.colors.bgMainSecondaryGrad};
-  background-image: url(${imageX1});
+  background-image: url(${imgDeskttopX1});
 
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url(${imageX2});
+    background-image: url(${imgDeskttopX2});
   }
+
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
+    padding: 150px 10px 100px 100px;
+  }
+
+  @media screen and (min-width: ${variables.breakpoints.desktop}) {
+    padding: 200px;
 `;
 
 export const HeroContainer = styled.div`
@@ -35,11 +42,15 @@ export const HeroContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  width: 1000px;
+  // width: 1000px;
+
+  // @media screen and (min-width: ${variables.breakpoints.tablet}) {
+  //   text-align: start;
+  // }
 `;
 
 export const Title = styled.h1`
-  font-size: 50px;
+  font-size: 25px;
   font-weight: bold;
 
   color: ${variables.colors.tertiary};
@@ -57,6 +68,14 @@ export const Title = styled.h1`
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
+    font-size: 40px;
+  }
+
+  @media screen and (min-width: ${variables.breakpoints.desktop}) {
+    font-size: 50px;
   }
 `;
 

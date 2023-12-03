@@ -1,4 +1,5 @@
 import * as s from './Benefits.styled';
+import * as List from './List';
 
 import { ReactComponent as Medal } from '../../icons/MainPage/medal.svg';
 import { ReactComponent as Car } from '../../icons/MainPage/car.svg';
@@ -10,8 +11,8 @@ import { ReactComponent as Shield } from '../../icons/MainPage/shield.svg';
 const Benefits = () => {
   return (
     <s.Container>
-      <s.Title>About us</s.Title>
-      <s.List>
+      <s.Title>Our benefits</s.Title>
+      <List.List>
         <s.Item>
           <s.IconContainer>
             <Medal />
@@ -53,7 +54,7 @@ const Benefits = () => {
           </s.IconContainer>
           <s.ItemDescription>Insured deals</s.ItemDescription>
         </s.Item>
-      </s.List>
+      </List.List>
     </s.Container>
   );
 };

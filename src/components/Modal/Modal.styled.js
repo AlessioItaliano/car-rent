@@ -20,14 +20,22 @@ export const Backdrop = styled.div`
 
 export const ModalField = styled.div`
   position: relative;
-  width: 541px;
-  height: auto;
-  padding: 40px;
 
-  // box-sizing: border-box;
+  width: calc(100% - 30px);
+  max-width: 541px;
+  height: auto;
+  max-height: calc(100vh - 30px);
+
+  padding: 40px 20px 20px 20px;
+  overflow-y: auto;
+
   border-radius: 24px;
 
   background-color: ${variables.colors.tertiary};
+
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
+    padding: 40px;
+  }
 `;
 
 export const CloseButton = styled.button`

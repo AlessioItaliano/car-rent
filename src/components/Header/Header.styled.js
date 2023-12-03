@@ -96,7 +96,7 @@ export const StyledLink = styled(NavLink)`
 `;
 
 export const BurgerMenuBtn = styled.button`
-  width: 60px;
+  width: 45px;
   height: auto;
 
   background-color: inherit;

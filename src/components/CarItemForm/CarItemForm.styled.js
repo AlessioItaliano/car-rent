@@ -5,8 +5,8 @@ import noImg from '../../images/noImage.jpeg';
 import { variables } from '../../stylesheet/variables';
 
 export const ImgBox = styled.div`
-  width: 461px;
-  height: 248px;
+  max-width: 100%;
+  // height: 248px;
 
   margin-bottom: 10px;
 
@@ -23,6 +23,16 @@ export const ImgBox = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  @media screen and (min-width: ${variables.breakpoints.tablet}) {
+    width: 461px;
+    height: 248px;
+  }
+
+  // @media screen and (min-width: ${variables.breakpoints.desktop}) {
+  //   padding: 40px;
+  //   width: 541px;
+  // }
 `;
 
 export const Foto = styled.img`
@@ -32,6 +42,10 @@ export const Foto = styled.img`
 
   border-radius: 14px;
   object-fit: cover;
+`;
+
+export const AllDescription = styled.div`
+  overflow-y: auto;
 `;
 
 export const MainDescription = styled.div`
